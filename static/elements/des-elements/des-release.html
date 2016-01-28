@@ -1,0 +1,45 @@
+<dom-module id="des-release">
+
+<style is="custom-style">
+
+</style>
+
+
+<template>
+
+
+<des-card  heading="DES DATA RELEASES">
+        
+      <div class="card-content" style="font-size: 23px">
+          Here we present both the official and unofficial data catalog releases from the Dark Energy Survey.
+          These releases consist on a series of catalogs distributed in files, with proper documentation and limited help support. Click on the release below.
+        </div>
+      
+          <div class="card-content">
+          <div class="horizontal   layout around-justified" >
+          <!--<a href="/releases/sva1" target="_self" >
+          <img src="/static/sva1.jpg" class="img-circle" alt="sva1" height="120px" ></a> <h1>SVA1 Gold</h1> 
+          <img src="/static/footprint.png" class="img-circle" alt="future" height="120px"> <h1>Future Releases</h1> -->
+          <paper-button noink raised class="cc" on-click="_sva1">SVA1 Gold Release</paper-button>
+          <paper-button noink disabled>Future Releases</paper-button>
+          </div> 
+          </div>
+                
+      </des-card>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "des-release",
+      _sva1: function(event){
+          page('/releases/sva1');
+      },
+
+    });
+
+
+</script>
+
+</dom>

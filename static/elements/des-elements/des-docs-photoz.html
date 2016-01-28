@@ -1,0 +1,230 @@
+<dom-module id="des-docs-photoz">
+
+<style is="custom-style">
+
+</style>
+
+
+<template>
+
+
+<des-card  heading="SVA1 Photo-z Catalogs">
+        
+      <div class="card-content">
+      <h2>Overview</h2>
+<p>Details on the production of the SVA1 photo-z catalogs, including&nbsp;tests of the accuracy of the photo-z estimates in 3 tomographic bins used in the lensing analysis, can be found in&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150705909B">Bonnett et al. (2015)</a>.&nbsp;Users should see that paper for any questions about the content of the catalogs. Further questions can be addressed to Christopher Bonnett, the corresponding author of that paper, whose email address is given therein. &nbsp;On this page, we merely describe the structure of the files being distributed, including brief descriptions of each of the columns included in the files</p>
+<p>We release files for the 4 photo-z techniques described in&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150705909B">Bonnett et al. (2015)</a>:</p>
+<ul>
+<li>ANNZ2 &ndash;&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150700490S">Sadeh et al.(2015)</a></li>
+<li>BPZ &ndash;&nbsp;<a href="http://adsabs.harvard.edu/abs/2000ApJ...536..571B">Ben&iacute;tez (2000)</a>,&nbsp;<a href="http://adsabs.harvard.edu/abs/2006AJ....132..926C">Coe et al. (2006)</a></li>
+<li>SKYNET &ndash;&nbsp;<a href="http://adsabs.harvard.edu/abs/2014MNRAS.441.1741G">Graff et al. (2014)</a>,&nbsp;<a href="http://adsabs.harvard.edu/abs/2015MNRAS.449.1043B">Bonnett (2015)</a></li>
+<li>TPZ &ndash;&nbsp;<a href="http://adsabs.harvard.edu/abs/2013MNRAS.432.1483C">Carrasco Kind &amp; Brunner (2013)</a></li></ul>
+<p>For each photo-z technique, we release two types of files:</p>
+<ul>
+<li>The first file type contains only the COADD_OBJECTS_ID and the mean value of the pdf for each object. &nbsp;</li>
+<li>The second file type contains the full PDF(z) for each object. &nbsp;</li></ul>
+<hr />
+<h2>Download</h2>
+<p>Point estimates:</p>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_annz2_point.fits.gz">sva1_gold_r1.0_annz2_point.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_bpz_point.fits.gz">sva1_gold_r1.0_bpz_point.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_skynet_point.fits.gz">sva1_gold_r1.0_skynet_point.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_tpz_point.fits.gz">sva1_gold_r1.0_tpz_point.fits.gz</a></li></ul>
+<p>Full PDFs:</p>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_annz2_pdf.fits.gz">sva1_gold_r1.0_annz2_pdf.fits.gz</a><a href="http://des.ncsa.illinois.edu/content/sva1_gold_r1.0_annz2_point.fits.gz"></a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_bpz_pdf.fits.gz">sva1_gold_r1.0_bpz_pdf.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_skynet_pdf.fits.gz">sva1_gold_r1.0_skynet_pdf.fits.gz</a></li>
+<li>
+<p><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_tpz_pdf.fits.gz">sva1_gold_r1.0_tpz_pdf.fits.gz</a></p></li></ul>
+<h2>Point estimates</h2>
+<p>The structure of the point estimate files are identical. They each contain two columns: the SVA1 unique object identifier and the mean photo-z for that object.</p>
+<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type (bytes)</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier&nbsp;</td></tr>
+<tr>
+<td colspan="1">Z_MEAN</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">Mean value of the PDF</td></tr></tbody></table>
+<p>&nbsp;</p>
+<h2>Full PDF estimates</h2>
+<p>The PDF files have a variable number of columns depending on the redshift binning used by each photo-z technique when generating the PDFs. All PDFs are normalized to sum to 1.</p>
+<h4><u>ANNZ2 Catalog &ndash;&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150700490S">Sadeh et al. (2015)</a></u></h4>
+<p>The PDFs have the following binning in redshift:</p>
+<p>z_min = 0.00, z_max = 1.8, nbins = 180</p>
+<syntax-highlight lang="py">
+#ANNZ2 binning
+import numpy as np
+annz2_bin_edges = np.linspace(0.0, 1.8, 181)
+</syntax-highlight>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type (bytes)</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier&nbsp;</td></tr>
+<tr>
+<td colspan="1">Z_MEAN</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">Mean value of the PDF</td></tr>
+<tr>
+<td colspan="1">Z_PEAK</td>
+<td colspan="1"><span>FLOAT (4)</span></td>
+<td colspan="1">Mode value of the PDF</td></tr>
+<tr>
+<td colspan="1">PDF_0</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">First value of PDF</td></tr>
+<tr>
+<td colspan="1">...</td>
+<td colspan="1">...</td>
+<td colspan="1">....</td></tr>
+<tr>
+<td colspan="1">PDF_179</td>
+<td colspan="1"><span>FLOAT (4)</span></td>
+<td colspan="1">180th value of PDF</td></tr></tbody></table>
+<h4><u>BPZ Catalog &ndash;&nbsp;<a href="http://adsabs.harvard.edu/abs/2000ApJ...536..571B">Ben&iacute;tez(2000)</a>,&nbsp;<a href="http://adsabs.harvard.edu/abs/2006AJ....132..926C">Coe et al.(2006)</a></u></h4>
+<p>The PDF's have the following binning in redshift:</p>
+<p>z_min = 0.005, z_max = 2.505 , nbins = 250</p>
+<syntax-highlight lang="py">
+#BPZ binning 
+import numpy as np
+bpz_bin_edges = np.linspace(0.005, 2.505, 251)
+</syntax-highlight>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type (bytes)</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier&nbsp;</td></tr>
+<tr>
+<td colspan="1">Z_MEAN</td>
+<td colspan="1">FLOAT (8)</td>
+<td colspan="1">Mean value of the PDF</td></tr>
+<tr>
+<td colspan="1">Z_PEAK</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">Mode value of the PDF</td></tr>
+<tr>
+<td colspan="1">PDF_0</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">First value of PDF</td></tr>
+<tr>
+<td colspan="1">...</td>
+<td colspan="1">...</td>
+<td colspan="1">...</td></tr>
+<tr>
+<td colspan="1">PDF_249</td>
+<td colspan="1"><span>FLOAT (4)</span></td>
+<td colspan="1"><span>250th value of PDF</span></td></tr></tbody></table>
+<h4><u>Skynet Catalog &ndash;&nbsp;<a href="http://adsabs.harvard.edu/abs/2014MNRAS.441.1741G">Graff et al. (2014)</a>,&nbsp;<a href="http://adsabs.harvard.edu/abs/2015MNRAS.449.1043B">Bonnett (2015)</a></u></h4>
+<p>The PDF's have the following binning in redshift:</p>
+<p>z_min = 0.005, z_max = 1.8, nbins = 200</p>
+<syntax-highlight lang="py">
+#Skynet binning
+import numpy as np
+skynet_bin_edges = np.linspace(0.005, 1.8, 201)
+</syntax-highlight>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type (bytes)</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier&nbsp;</td></tr>
+<tr>
+<td colspan="1">Z_MEAN</td>
+<td colspan="1">FLOAT (8)</td>
+<td colspan="1">Mean value of the PDF</td></tr>
+<tr>
+<td colspan="1">Z_PEAK</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">Mode value of the PDF</td></tr>
+<tr>
+<td colspan="1">PDF_0</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">First value of PDF</td></tr>
+<tr>
+<td colspan="1">...</td>
+<td colspan="1">...</td>
+<td colspan="1">...</td></tr>
+<tr>
+<td colspan="1">PDF_199</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">200th value of PDF</td></tr></tbody></table>
+<h4><u>TPZ Catalog &ndash;&nbsp;<a href="http://adsabs.harvard.edu/abs/2013MNRAS.432.1483C">Carrasco Kind &amp; Brunner (2013)</a></u></h4>
+<p>The PDF's have the following binning in redshift:</p>
+<p>z_min = &nbsp;&nbsp;0.0012625, z_max = 1.9962625, nbins = 200</p>
+<syntax-highlight lang="py">
+#TPZ binning
+import numpy as np
+dz = 0.007475
+tpz_bin_edges = np.linspace(0.005-dz/2, 2.0-dz/2, 201)
+</syntax-highlight>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type (bytes)</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier&nbsp;</td></tr>
+<tr>
+<td colspan="1">Z_MEAN</td>
+<td colspan="1">FLOAT (8)</td>
+<td colspan="1">Mean value of the PDF</td></tr>
+<tr>
+<td colspan="1">Z_PEAK</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">Mode value of the PDF</td></tr>
+<tr>
+<td colspan="1">PDF_0</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">First value of PDF</td></tr>
+<tr>
+<td colspan="1">...</td>
+<td colspan="1">...</td>
+<td colspan="1">...</td></tr>
+<tr>
+<td colspan="1">PDF_199</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">200th value of PDF</td></tr></tbody></table>
+     
+     </div>
+                
+      </ds-card>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "des-docs-photoz",
+    });
+
+
+</script>
+
+</dom>

@@ -1,0 +1,170 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<script src="../bower_components/page/page.js"></script>
+<script>
+  window.addEventListener('WebComponentsReady', function() {
+    var newtest = true;
+
+    // We use Page.js for routing. This is a Micro
+    // client-side router inspired by the Express router
+    // More info: https://visionmedia.github.io/page.js/
+
+    // Removes end / from app.baseUrl which page.base requires for production
+    if (window.location.port === '') {  // if production
+      page.base(app.baseUrl.replace(/\/$/, ''));
+    }
+
+    // Middleware
+    function scrollToTop(ctx, next) {
+      app.scrollPageToTop();
+      next();
+    }
+
+    function closeDrawer(ctx, next) {
+      app.closeDrawer();
+      next();
+    }
+
+    // Routes
+    page('*', scrollToTop, closeDrawer, function(ctx, next) {
+      next();
+    });
+
+    page('/', function() {
+      app.route = 'home';
+    });
+
+    page(app.baseUrl, function() {
+      app.route = 'home';
+    });
+
+    page('/releases/sva1', function() {
+      if (newtest) {
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.rel_menu.select(0);
+      }
+      newtest = false;
+      app.route = 'sva1';
+    });
+    
+    page('/releases/sva1/help', function() {
+     if (newtest) {
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sva1_menu.select(2);
+      }
+      newtest = false;
+      app.route = 'sva1_help';
+      //window.open('https://deslogin.wufoo.com/forms/des-sva1-gold-release-help-form/','_blank');
+    });
+    
+    page('/releases/sva1/content', function() {
+    if (newtest) {
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sva1_menu.select(0);
+      }
+      newtest = false;
+      app.route = 'content';
+    });
+    
+    page('/releases/sva1/doc', function() {
+        if (newtest) {
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sva1_menu.select(1);
+      }
+      newtest = false;
+      app.route = 'documentation';
+    });
+    
+    page('/releases/sva1/doc/gold', function() {
+            if (newtest) {
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(0);
+      }
+      newtest = false;
+      app.route = 'doc_gold';
+    });
+    
+    page('/releases/sva1/doc/photoz', function() {
+      if (newtest) {
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(2);
+      }
+      newtest = false;
+      app.route = 'doc_photoz';
+    });
+
+    page('/releases/sva1/doc/shear', function() {
+                 if (newtest) {
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(1);
+      }
+      newtest = false;
+      app.route = 'doc_shear';
+    });
+
+    page('/releases/sva1/doc/redmapper', function() {
+                   if (newtest) {
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(3);
+      }
+      newtest = false;  
+      app.route = 'doc_redmapper';
+    });
+    
+    page('/releases', function() {
+      if (newtest) {
+      app.$.sub_rel.open();
+      app.selected="releases";
+      }
+      newtest = false;
+      app.route = 'releases';
+    });
+
+
+    page('/thanks', function() {
+      app.route = 'thanks';
+    });
+    
+    page('/contact/gold', function() {
+      app.route = 'gold';
+    });
+    
+    page('/contact/photoz', function() {
+      app.route = 'photoz';
+    });
+
+    // 404
+    page('*', function() {
+      //app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
+      //app.$.toast.show();
+      //page.redirect(app.baseUrl);
+      app.route = '404';
+    });
+
+    // add #! before urls
+    page({
+      hashbang: false
+    });
+
+  });
+</script>

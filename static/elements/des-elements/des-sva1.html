@@ -1,0 +1,66 @@
+<dom-module id="des-sva1">
+
+<style is="custom-style">
+ 
+
+</style>
+
+
+<template>
+
+
+<des-card  heading="DES SVA1 GOLD RELEASE" >
+        <div class="horizontal flex layout center-justified">
+        <iron-image style="width:350px; height:350px; padding: 40px;" sizing="contain"
+                src="/static/images/DESDarkMatterCutouts.jpg"></iron-image>
+     
+           <iron-image style="width:350px; height:350px; padding: 40px;" sizing="contain"
+                src="/static/images/sva1_gold_footprint.png"></iron-image>
+            </div>
+      <div class="card-content">
+          This is the unofficial release of the DES Science Verification (SV) data products, for
+          a detailed description of this release please see the
+          <a data-route="documentation" href="{{baseUrl}}sva1/doc">Documentation page</a>.
+          Check <a data-route="content" href="{{baseUrl}}sva1/content">here</a>
+          to see the list of available files. For questions not covered in the <a
+              data-route="documentation" href="{{baseUrl}}sva1/doc">Documentation</a>
+           please use this <a href="/releases/sva1/help">Help</a> form.
+
+          </div>
+                <div class="card-content">
+
+      <div class="horizontal layout around-justified" >
+
+                 <paper-button   raised on-click="_download" class="cc"
+                         >Files</paper-button>
+                 <paper-button   raised on-click="_documentation"
+                                 class="cc" id="docs">Documentation</paper-button>
+                 <paper-button   raised on-click="_help"
+                                 class="cc">Help</paper-button>
+
+      </div>
+      </div>
+      </des-card>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "des-sva1",
+      _download: function(event){
+          page('/releases/sva1/content');
+      },
+      _help: function(event){
+          page('/releases/sva1/help');
+      },
+      _documentation: function(event){
+          page('/releases/sva1/doc');
+      },
+
+    });
+
+
+</script>
+
+</dom>

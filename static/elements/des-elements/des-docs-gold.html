@@ -1,0 +1,147 @@
+<dom-module id="des-docs-gold">
+
+<style is="custom-style">
+ 
+
+</style>
+
+
+<template>
+
+
+<des-card heading="SVA1 GOLD Catalog" >
+        
+      <div class="card-content">
+  <h2>Overview</h2>
+<p>The SVA1 GOLD catalog consists of basic astrometry, photometry, and object classification for&nbsp;<span style="color: rgb(51,51,51);">25,227,559&nbsp;</span>objects. This catalog was assembled from the SVA1 GOLD data set processed with an early version of the DES Data Management (DESDM) system, which included image detrending, astrometric registration, global calibration, and image coaddition. The SExtractor toolkit was used to create object catalogs from coadded SV images (<a href="http://adsabs.harvard.edu/abs/1996A%26AS..117..393B">Bertin &amp; Arnouts 1996</a>).&nbsp;The SVA1 GOLD catalog has a relative astrometric precision of&nbsp;<span style="color: rgb(51,51,51);">~100&nbsp;</span>mas per coordinated (from multiple DES observations of the same object) and an absolute astrometric precision of&nbsp;<span style="color: rgb(51,51,51);">~200&nbsp;m</span>as per coordinate compared against the&nbsp;<span style="color: rgb(255,0,0);"><span style="color: rgb(0,51,102);">UCAC-4</span> <span style="color: rgb(0,0,0);">catalog (<a href="http://adsabs.harvard.edu/abs/2013AJ....145...44Z">Zacharias et al. 2013</a>)</span></span>. Object photometry is provided in the DES&nbsp;<em>g, r, i,</em>&nbsp;and&nbsp;<em>z</em>&nbsp;bands (no&nbsp;<em>Y</em>-band).</p>
+<p>Photometric calibration was performed in two stages. First, absolute calibrations were performed against a set of photometric standards using a global calibrations module (GCM;&nbsp;<span style="color: rgb(51,51,51);"><a href="http://adsabs.harvard.edu/abs/2007ASPC..364..187T">Tucker et al. 2007</a></span>). After the global calibration, a re-calibration was performed via stellar locus regression (SLR) using the BigMACs code (<a href="http://adsabs.harvard.edu/abs/2012ascl.soft08007K">Kelly et al. 2014</a>). The SLR zeropoint adjustment used the PSF magnitudes measured for objects classified as stars (more on this later). Note that the SLR adjustment produces magnitudes that are calibrated to the&nbsp;<strong>top of the Galaxy</strong>&nbsp;(i.e., corrections for Galactic extinction are already incorporated into the calibration). The calibration uncertainty of the SVA1 GOLD catalog is estimated to be &lt; 2%. All magnitudes are<span style="color: rgb(72,72,72);">&nbsp;put on a &quot;picomaggie&quot; system (DES AB magnitudes, zeropoint = 30.0).&nbsp;</span></p>
+<p><span style="color: rgb(0,0,0);">Individual DECam exposures were coadded to increase survey depth. During the SV coaddition process, the point spread functions (PSFs) of the individual single-epoch images were not homogenized at the coadd image level. Rather, a parametric model was used to account for spatial variations in the PSF in each coadd image (PSFEx;&nbsp;</span><a href="http://adsabs.harvard.edu/abs/2011ASPC..442..435B">Bertin 2011</a><span style="color: rgb(0,0,0);">); however, this model is not a full description of the spatial variation of the PSF within a coadd image, and as a result there are systematic differences between the MAG_PSF measurements and the MAG_AUTO measurements of stars. We therefore&nbsp;</span><strong>STRONGLY RECOMMEND</strong><span style="color: rgb(0,0,0);">&nbsp;the use of the MAG_AUTO quantities unless detailed study motivates the use of MAG_PSF. The MAG_PSF variables were used to derive the stellar locus correction to the photometric calibration and are included for completeness.</span></p>
+<p>We provide several variable for star galaxy classification including SPREAD_MODEL (<a href="http://adsabs.harvard.edu/abs/2012ApJ...757...83D">Desai et al. 2012</a>), CLASS_STAR (<a href="http://adsabs.harvard.edu/abs/1996A%26AS..117..393B">Bertin &amp; Arnouts 1996</a>), and MODEST_CLASS (see Section 2.2. in <a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J">Jarvis et al. 2015</a>). For simple and robust star-galaxy classification we recommend the MODEST_CLASS variable, which combines information from CLASS_STAR, SPREAD_MODEL, and SPREADERR_MODEL. The MODEST_CLASS galaxy classification is found to have a simultaneous efficiency (N(class galaxy)/N(true galaxy))&nbsp;and purity&nbsp;(N(class galaxy &amp; true galaxy)/N(class galaxy))&nbsp;of&nbsp;&ge;90% for objects with i-band magnitude fainter that 19.&nbsp;</p>
+<p>The SVA1 GOLD data products cover <span style="color: rgb(51,51,51);">~&nbsp;250 square degrees&nbsp;</span>with non-uniform depth and data quality. The non-uniform survey depth is estimated in detail via&nbsp;<a href="https://opensource.ncsa.illinois.edu/confluence/display/DESDM/SVA1+GOLD+Catalog#SVA1GOLDCatalog-LimitingMagnitudeMaps">Limiting Magnitude Maps</a>; however, for convenience the median&nbsp;10&sigma; limiting magnitude for galaxies in SVA1 GOLD is approximately:&nbsp;<em>g</em> = 24.0, <em>r</em> = 23.8,<em> i</em> = 23.0, <em>z</em> = 22.3.&nbsp;The primary science data set can be broken into several fields (plotted below in Cartesian projection):</p>
+<ul>
+<li>
+<p><span style="color: rgb(51,51,51);"><strong>SPT-E</strong>:&nbsp;~160 sq. deg.&nbsp;overlapping the&nbsp;eastern part of the South Pole Telescope footprint.</span></p></li>
+<li>
+<p><span style="color: rgb(51,51,51);"><strong>SPT-W</strong>:&nbsp;~ 35 sq. deg.&nbsp;overlapping the western part of the South Pole Telescope footprint.</span></p></li>
+<li>
+<p><span style="color: rgb(51,51,51);"><strong><strong>DES SN</strong>: &nbsp;</strong>~ 5 - 15 sq. deg.&nbsp;coincident with the DES supernova fields (SN-C, SN-E, SN-S, and SN-X).</span></p></li>
+<li>
+<p><span style="color: rgb(51,51,51);"><strong>Cluster Fields:&nbsp;</strong>~ 3.5 sq. deg.&nbsp;surrounding each of the&nbsp;rich galaxy clusters&nbsp;RXC J2248,&nbsp;Bullet Cluster, and&nbsp;El Gordo.</span></p></li>
+<li>
+<p><strong>COSMOS</strong>:<span style="color: rgb(0,51,102);">&nbsp;<span style="color: rgb(51,51,51);">~ 3.5 sq. deg.</span></span>&nbsp;of imaging in the <a href="http://cosmos.astro.caltech.edu/">COSMOS field</a> reaching ~1 mag fainter than the nominal DES depth</p></li>
+<li><strong>VVDS-02h:</strong><span style="color: rgb(51,51,51);">&nbsp;~ 1&nbsp;sq. deg.&nbsp;</span>of the SN-X fields overlaps the <a href="http://adsabs.harvard.edu/abs/2013A%26A...559A..14L">VVDS-02h region</a>.<br /><br /></li></ul>
+
+<div  class="horizontal layout center-justified">
+<iron-image  src="/static/images/sva1_gold_footprint.png" style="width:500px; height:500px;" sizing="contain"></iron-image>
+</div>
+<p><hr />
+<h2>Download</h2>
+<p>SVA1 GOLD object catalog:</p>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_catalog.fits.gz">sva1_gold_r1.0_catalog.fits.gz</a></li></ul>
+<p>SVA1 limiting magnitude maps</p>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_maglim_auto_g_n4096.fits.gz">sva1_gold_r1.0_maglim_auto_g_n4096.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_maglim_auto_r_n4096.fits.gz">sva1_gold_r1.0_maglim_auto_r_n4096.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_maglim_auto_i_n4096.fits.gz">sva1_gold_r1.0_maglim_auto_i_n4096.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_maglim_auto_z_n4096.fits.gz">sva1_gold_r1.0_maglim_auto_z_n4096.fits.gz</a></li></ul>
+<p>SVA1 good-region footprint</p>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_goodregions_04_n4096.fits.gz">sva1_gold_r1.0_goodregions_04_n4096.fits.gz</a></li></ul>
+<h2>Catalog Description</h2>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier (can be used to match against other SVA1 catalogs)</td></tr>
+<tr>
+<td colspan="1">RA<br />DEC</td>
+<td colspan="1">FLOAT (8)<br />FLOAT&nbsp;(8)</td>
+<td colspan="1">
+<p>Celestial coordinates in decimal degrees (J2000) corresponding to the <em>i</em>-band windowed <br /><span>position </span>(the ALPHAWIN_J2000 and DELTAWIN_J2000) output by SExtractor. <br />For a small number of objects (&lt;0.1%) the position is taken for <em>z</em>- or <em>r</em>-band <br />(when i-band is not available)&nbsp;</p></td></tr>
+<tr>
+<td>MODEST_CLASS</td>
+<td>INT (2)</td>
+<td>
+<p>Integer object classification schema built on SPREAD_MODEL, <br />SPREADERR_MODEL, and CLASS_STAR (<a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J" style="text-decoration: underline;">Jarvis et al. 2015</a>)</p>
+<ul>
+<li>0: Undetermined</li>
+<li>1: Galaxies</li>
+<li>2: Stars</li></ul></td></tr>
+<tr>
+<td colspan="1">FLAGS<span>_[G,R,I,Z]</span></td>
+<td colspan="1">INT (4)</td>
+<td colspan="1">
+<p>SExtractor flags values (precut on FLAGS &lt; 4)</p>
+<ul>
+<li>0: No issue</li>
+<li>1: Bright neighbors</li>
+<li>2: Blended object</li></ul></td></tr>
+<tr>
+<td colspan="1">BADFLAG</td>
+<td colspan="1">INT (4)</td>
+<td colspan="1">
+<p>SVA1 GOLD flag definitions:</p>
+<ul>
+<li>1: In the 10th percentile of worst junk regions (probably okay)</li>
+<li>2: In the 4th percentile of worst junk regions (probably bad)</li>
+<li>4: Near bright 2MASS star (very likely bad)</li>
+<li>8: Large offset between g- and i-band windowed positions (bad object)</li></ul></td></tr>
+<tr>
+<td colspan="1">MAG_AUTO_[G,R,I,Z]<br />MAGERR_AUTO_[G,R,I,Z]</td>
+<td colspan="1">FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">AUTO magnitudes from SExtractor.</td></tr>
+<tr>
+<td colspan="1">MAG_PSF<span>_[G,R,I,Z]</span><br />MAGERR_PSF<span>_[G,R,I,Z]</span></td>
+<td colspan="1">FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1"><span style="color: rgb(0,0,0);">PSF magnitudes form SExtractor. <span style="color: rgb(51,51,51);"><strong>NOT RECOMMENDED (see above).</strong></span><strong><br /><br /></strong></span></td></tr>
+<tr>
+<td colspan="1">SPREAD_MODEL<span>_[G,R,I,Z]</span><br />SPREADERR_MODEL<span>_[G,R,I,Z]</span></td>
+<td colspan="1">FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">Linear discriminant between the best fitting local PSF model and a slightly <br />more extended galaxy model (<a href="http://adsabs.harvard.edu/abs/2012ApJ...757...83D" style="text-decoration: underline;">Desai et al. 2012</a>)</td></tr>
+<tr>
+<td colspan="1">CLASS_STAR<span>_[G,R,I,Z]</span></td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">Neural-network star galaxy classification from SExtractor (<a href="http://adsabs.harvard.edu/abs/1996A%26AS..117..393B" style="text-decoration: underline;">Bertin &amp; Arnouts 1996</a>)</td></tr>
+<tr>
+<td colspan="1">FLUX_RADIUS<span>_[G,R,I,Z]</span></td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">
+<p><span style="color: rgb(0,0,0);">Radius in pixels (0.263&quot;/pix) of a circle centered on the object barycenter that <br /></span><span style="color: rgb(0,0,0);">encloses half of </span><span style="color: rgb(0,0,0);">the total flux as measured by SExtractor.</span></p></td></tr></tbody></table>
+<hr />
+<h2>Limiting Magnitude Maps</h2>
+<p><span style="color: rgb(255,0,0);"><span style="color: rgb(0,0,0);">The SVA1 GOLD survey depth is estimated for the AUTO magnitudes appropriate for galaxies following the procedure of&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150900870R">Rykoff et al. (2015)</a>. &nbsp;M</span></span><span style="color: rgb(0,0,0);">aps of the 10&sigma; galaxy limiting magnitude were generated by fitting the MAGERR_AUTO vs MAG_AUTO relationship on large pixels and correlating with small-scale spatially varying survey characteristics (<a href="http://adsabs.harvard.edu/abs/2015arXiv150705647L">Leistedt et al. 2015</a>). These maps are distributed in nested&nbsp;HEALPix format (nside=4096).</span></p>
+<h2><span style="line-height: 1.5;">Good-Region Footprint</span></h2>
+<p><span style="line-height: 1.5;"><span style="color: rgb(0,0,0);">We also distribute a &quot;good region&quot; footprint which masks regions with imaging artifacts (as identified by a high density of objects with &quot;crazy colors&quot;), regions close to bright&nbsp;2MASS stars, and regions where objects have large astrometric offsets between filters. A detailed description of the creation of the good region footprint can be found in Section 2.1 of&nbsp;</span><a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J">Jarvis et al. (2015</a>)<span style="color: rgb(0,0,0);">.</span></span></p>
+<h2><span style="line-height: 1.5;">References</span></h2>
+<ul>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/1996A%26AS..117..393B">Bertin &amp; Arnouts (1996)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2011ASPC..442..435B">Bertin (2011)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2012ApJ...757...83D">Desai et al. (2012)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J">Jarvis et al. (2015)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2012ascl.soft08007K">Kelly et al. (2014)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2013A%26A...559A..14L">Le Fevre et al. (2013)</a></li>
+<li class="p1"><a class="external-link" href="http://adsabs.harvard.edu/abs/2015arXiv150705460R" rel="nofollow">Rozo et al. (2015)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2013AJ....145...44Z">Zacharias et al. (2013)</a></li></ul>
+
+          </div>
+                
+      </des-card>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "des-docs-gold",
+    });
+
+
+</script>
+
+</dom>

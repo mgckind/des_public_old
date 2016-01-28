@@ -1,0 +1,411 @@
+<dom-module id="des-docs-redmapper">
+
+<style is="custom-style">
+
+</style>
+
+
+<template>
+
+
+<des-card  heading="SVA1 redMaPPer and redMaGiC Catalogs">
+        
+      <div class="card-content">
+<h2>Overview</h2>
+<p>Details on the production of the DES SVA1 redMaPPer galaxy cluster and redMaGiC red galaxy catalogs are described in <a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R">Rykoff et al. (2016)</a>&nbsp;and&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150705460R">Rozo et al. (2015)</a>. &nbsp;Users should consult these papers for any and all details about the catalogs and tests that have been performed. &nbsp;Further questions should be addressed to Eli Rykoff or Eduardo Rozo, who are the corresponding authors of these papers, and have email addresses therein. &nbsp;On this page, we merely describe the structure of the files being distributed, including brief descriptions of each of the columns included in the files.</p>
+<p>As described in&nbsp;<a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R">Rykoff et al. (2016)</a>, there are two redMaPPer cluster catalogs. &nbsp;The first is the fiducial catalog with a more conservative footprint and star/galaxy separation. &nbsp;The second is the &quot;expanded&quot; catalog, with inferior star/galaxy separation, a larger footprint, and less conservative masking.</p>
+<p>As described in&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150705460R">Rozo et al. (2015)</a>&nbsp;(see Table 3) there are two redMaGiC red galaxy catalogs, with two different luminosity/density cuts. &nbsp;These are described as the &quot;Bright&quot; and &quot;Faint&quot; redMaGiC samples, although we note that the brightest galaxies in the &quot;faint&quot; sample substantially overlap the &quot;bright&quot; sample; that is, these are two alternative catalogs and should not be combined.</p>
+
+<h2>Download</h2>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_catalog.fits.gz">redmapper_sva1_public_v6.3_catalog.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_members.fits.gz">redmapper_sva1_public_v6.3_members.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_randoms.fits.gz">redmapper_sva1_public_v6.3_randoms.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_zmask.fits.gz">redmapper_sva1_public_v6.3_zmask.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_area.fits.gz">redmapper_sva1_public_v6.3_area.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_catalog.fits.gz">redmapper_sva1-expanded_public_v6.3_catalog.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_members.fits.gz">redmapper_sva1-expanded_public_v6.3_members.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_randoms.fits.gz">redmapper_sva1-expanded_public_v6.3_randoms.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_zmask.fits.gz">redmapper_sva1-expanded_public_v6.3_zmask.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_area.fits.gz">redmapper_sva1-expanded_public_v6.3_area.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmagic_sva1_public_v6.3_faint.fits.gz">redmagic_sva1_public_v6.3_faint.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmagic_sva1_public_v6.3_bright.fits.gz">redmagic_sva1_public_v6.3_bright.fits.gz</a></li></ul>
+<h2>redMaPPer Catalog Formats</h2>
+<h3>Cluster Catalog Format</h3>
+<p>See&nbsp;<a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R">Rykoff et al. (2016)</a>, Table 8.</p>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th></tr>
+<tr>
+<td>ID</td>
+<td>INT(4)</td>
+<td>redMaPPer Cluster Identification Number</td></tr>
+<tr>
+<td>NAME</td>
+<td>CHAR(20)</td>
+<td>redMaPPer Cluster Name</td></tr>
+<tr>
+<td>RA</td>
+<td>FLOAT(8)</td>
+<td>Right ascension in decimal degrees (J2000)</td></tr>
+<tr>
+<td>DEC</td>
+<td>FLOAT(8)</td>
+<td>Declination in decimal degrees (J2000)</td></tr>
+<tr>
+<td>Z_LAMBDA</td>
+<td>FLOAT(4)</td>
+<td>Cluster photo-z</td></tr>
+<tr>
+<td>Z_LAMBDA_ERR</td>
+<td>FLOAT(4)</td>
+<td>Gaussian error estimate for Z_LAMBDA</td></tr>
+<tr>
+<td>LAMBDA</td>
+<td>FLOAT(4)</td>
+<td>Richness estimate</td></tr>
+<tr>
+<td>LAMBDA_ERR</td>
+<td>FLOAT(4)</td>
+<td>Gaussian error estimate for LAMBDA</td></tr>
+<tr>
+<td>S</td>
+<td>FLOAT(4)</td>
+<td>Richness scale factor (see Eqn. 2 in Rykoff et al. 2016)</td></tr>
+<tr>
+<td>Z_SPEC</td>
+<td>FLOAT(4)</td>
+<td>Spectroscopic redshift for most likely center (-1.0 if not available)</td></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT(8)</td>
+<td>Unique object identifier (can be used to match against other SVA1 catalogs)</td></tr>
+<tr>
+<td>MAG_AUTO_G</td>
+<td>FLOAT(4)</td>
+<td>g MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</td></tr>
+<tr>
+<td>MAGERR_AUTO_G</td>
+<td>FLOAT(4)</td>
+<td>error on g MAG_AUTO magnitude</td></tr>
+<tr>
+<td>MAG_AUTO_R</td>
+<td><span>FLOAT(4)</span></td>
+<td><span>r MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</span></td></tr>
+<tr>
+<td>MAGERR_AUTO_R</td>
+<td><span>FLOAT(4)</span></td>
+<td><span>error on r MAG_AUTO magnitude</span></td></tr>
+<tr>
+<td>MAG_AUTO_I</td>
+<td><span>FLOAT(4)</span></td>
+<td><span>i MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</span></td></tr>
+<tr>
+<td>MAGERR_AUTO_I</td>
+<td><span>FLOAT(4)</span></td>
+<td><span>error on i MAG_AUTO magnitude</span></td></tr>
+<tr>
+<td>MAG_AUTO_Z</td>
+<td><span>FLOAT(4)</span></td>
+<td><span>z MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</span></td></tr>
+<tr>
+<td>MAGERR_AUTO_Z</td>
+<td><span>FLOAT(4)</span></td>
+<td><span>error on z MAG_AUTO magnitude</span></td></tr>
+<tr>
+<td colspan="1">ZLUM</td>
+<td colspan="1">FLOAT(4)</td>
+<td colspan="1">Total membershift-weighted z-band luminosity (units of L_*)</td></tr>
+<tr>
+<td colspan="1">P_CEN[5]</td>
+<td colspan="1">5 x FLOAT(4)</td>
+<td colspan="1">Centering probability P_cen for 5 most likely centrals</td></tr>
+<tr>
+<td colspan="1">RA_CEN[5]</td>
+<td colspan="1">5 x FLOAT(8)</td>
+<td colspan="1">R.A. for 5 most likely centrals</td></tr>
+<tr>
+<td colspan="1">DEC_CEN[5]</td>
+<td colspan="1">5 x FLOAT(8)</td>
+<td colspan="1">Decl. for 5 most likely centrals</td></tr>
+<tr>
+<td colspan="1">ID_CEN[5]</td>
+<td colspan="1">5 x INT(8)</td>
+<td colspan="1">COADD_OBJECTS_ID for 5 most likely centrals</td></tr>
+<tr>
+<td colspan="1">PZBINS[21]</td>
+<td colspan="1">21 x FLOAT(4)</td>
+<td colspan="1">Redshift points at which P(z) is evaluated</td></tr>
+<tr>
+<td colspan="1">PZ[21]</td>
+<td colspan="1">21 x FLOAT(4)</td>
+<td colspan="1">P(z) evaluated at redshift points given by PZBINS</td></tr></tbody></table>
+<h3>Member Catalog Format</h3>
+<p>See&nbsp;<a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R">Rykoff et al. (2016)</a>, Table 9.</p>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th></tr>
+<tr>
+<td>ID</td>
+<td>INT(4)</td>
+<td>redMaPPer cluster identification number</td></tr>
+<tr>
+<td>RA</td>
+<td>FLOAT(8)</td>
+<td>Right ascension in decimal degrees (J2000)</td></tr>
+<tr>
+<td>DEC</td>
+<td>FLOAT(8)</td>
+<td>Declination in decimal degrees (J2000)</td></tr>
+<tr>
+<td>R</td>
+<td>FLOAT(4)</td>
+<td>Distance from cluster center (h^{-1} Mpc)</td></tr>
+<tr>
+<td>P</td>
+<td>FLOAT(4)</td>
+<td>Membership probability</td></tr>
+<tr>
+<td>P_FREE</td>
+<td>FLOAT(4)</td>
+<td>Probability that member is not a member of a higher-ranked cluster</td></tr>
+<tr>
+<td>THETA_L</td>
+<td>FLOAT(4)</td>
+<td>Luminosity (z-band) weight</td></tr>
+<tr>
+<td>THETA_R</td>
+<td>FLOAT(4)</td>
+<td>Radial weight</td></tr>
+<tr>
+<td>MAG_AUTO_G</td>
+<td><span>FLOAT(4)</span></td>
+<td><span>g MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</span></td></tr>
+<tr>
+<td>MAGERR_AUTO_G</td>
+<td><span>FLOAT(4)</span></td>
+<td><span>error on g MAG_AUTO magnitude</span></td></tr>
+<tr>
+<td><span>MAG_AUTO_R</span></td>
+<td><span>FLOAT(4)</span></td>
+<td><span>r MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</span></td></tr>
+<tr>
+<td><span>MAGERR_AUTO_R</span></td>
+<td><span>FLOAT(4)</span></td>
+<td><span>error on r MAG_AUTO magnitude</span></td></tr>
+<tr>
+<td><span>MAG_AUTO_I</span></td>
+<td><span>FLOAT(4)</span></td>
+<td><span>i MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</span></td></tr>
+<tr>
+<td><span>MAGERR_AUTO_I</span></td>
+<td><span>FLOAT(4)</span></td>
+<td><span>error on i MAG_AUTO magnitude</span></td></tr>
+<tr>
+<td><span>MAG_AUTO_Z</span></td>
+<td><span>FLOAT(4)</span></td>
+<td><span>z MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</span></td></tr>
+<tr>
+<td><span>MAGERR_AUTO_Z</span></td>
+<td><span>FLOAT(4)</span></td>
+<td><span>error on z MAG_AUTO magnitude</span></td></tr>
+<tr>
+<td>Z_SPEC</td>
+<td>FLOAT(4)</td>
+<td>Spectroscopic redshift (-1.0 if not available)</td></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT(8)</td>
+<td>Unique object identifier (can be used to match against other SVA1 catalogs)</td></tr></tbody></table>
+<h3>Zmask Format</h3>
+<p>See&nbsp;<a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R" style="text-decoration: underline;">Rykoff et al. (2016)</a>, Table 10.</p>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th></tr>
+<tr>
+<td>HPIX</td>
+<td>INT(8)</td>
+<td>HEALPIX ring-ordered pixel number (nside=4096)</td></tr>
+<tr>
+<td>ZMAX</td>
+<td>FLOAT(4)</td>
+<td>Maximum redshift of a cluster centered in this pixel</td></tr>
+<tr>
+<td>FRACGOOD</td>
+<td>FLOAT(4)</td>
+<td>Fraction of pixel area that is not masked</td></tr></tbody></table>
+<h3>Random Point Format</h3>
+<p>See&nbsp;<a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R">Rykoff et al. (2016)</a>, Table 11.</p>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th></tr>
+<tr>
+<td>RA</td>
+<td>FLOAT(8)</td>
+<td>Right ascension in decimal degrees (J2000)</td></tr>
+<tr>
+<td>DEC</td>
+<td>FLOAT(8)</td>
+<td>Declination in decimal degrees (J2000)</td></tr>
+<tr>
+<td>Z</td>
+<td>FLOAT(4)</td>
+<td>Redshift of random point</td></tr>
+<tr>
+<td>LAMBDA</td>
+<td>FLOAT(4)</td>
+<td>Richness of random point</td></tr>
+<tr>
+<td>WEIGHT</td>
+<td>FLOAT(4)</td>
+<td>Weight of random point</td></tr></tbody></table>
+<h3>Effective Area Format</h3>
+<p>See <a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R">Rykoff et al. (2016)</a>, Table 12.</p>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th></tr>
+<tr>
+<td>Z</td>
+<td>FLOAT(4)</td>
+<td>Redshift cut</td></tr>
+<tr>
+<td>AREA</td>
+<td>FLOAT(4)</td>
+<td>Effective area (degree^2)</td></tr></tbody></table>
+<p>&nbsp;</p>
+<h3>redMaGiC Catalog Format</h3>
+<p>See <a href="http://adsabs.harvard.edu/abs/2015arXiv150705460R">Rozo et al. (2015)</a>, Table B2.</p>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT(8)</td>
+<td>Unique object identifier (can be used to match against other SVA1 catalogs)</td></tr>
+<tr>
+<td>RA</td>
+<td>FLOAT(8)</td>
+<td>Right ascension in decimal degrees (J2000)</td></tr>
+<tr>
+<td>DEC</td>
+<td>FLOAT(8)</td>
+<td>Declination in decimal degrees (J2000)</td></tr>
+<tr>
+<td>MAG_AUTO_G</td>
+<td>FLOAT(4)</td>
+<td>g MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</td></tr>
+<tr>
+<td>MAGERR_AUTO_G</td>
+<td>FLOAT(4)</td>
+<td>error on g MAG_AUTO magnitude</td></tr>
+<tr>
+<td>MAG_AUTO_R</td>
+<td>FLOAT(4)</td>
+<td>r MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</td></tr>
+<tr>
+<td>MAGERR_AUTO_R</td>
+<td>FLOAT(4)</td>
+<td>error on r MAG_AUTO magnitude</td></tr>
+<tr>
+<td>MAG_AUTO_I</td>
+<td>FLOAT(4)</td>
+<td>i MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</td></tr>
+<tr>
+<td>MAGERR_AUTO_I</td>
+<td>FLOAT(4)</td>
+<td>error on i MAG_AUTO magnitude</td></tr>
+<tr>
+<td>MAG_AUTO_Z</td>
+<td>FLOAT(4)</td>
+<td>z MAG_AUTO magnitude for most likely central galaxy (SLR corrected)</td></tr>
+<tr>
+<td>MAGERR_AUTO_Z</td>
+<td>FLOAT(4)</td>
+<td>error on z MAG_AUTO magnitude</td></tr>
+<tr>
+<td>MABS_G</td>
+<td>FLOAT(4)</td>
+<td>Absolute magnitude in g (k-corrected to z=0.1)</td></tr>
+<tr>
+<td>MABS_ERR_G</td>
+<td>FLOAT(4)</td>
+<td>Error on absolute magnitude in g</td></tr>
+<tr>
+<td>MABS_R</td>
+<td>FLOAT(4)</td>
+<td>Absolute magnitude in r</td></tr>
+<tr>
+<td>MABS_ERR_R</td>
+<td>FLOAT(4)</td>
+<td>Error on absolute magnitude in r</td></tr>
+<tr>
+<td>MABS_I</td>
+<td>FLOAT(4)</td>
+<td>Absolute magnitude in i</td></tr>
+<tr>
+<td>MABS_ERR_I</td>
+<td>FLOAT(4)</td>
+<td>Error on absolute magnitude in i</td></tr>
+<tr>
+<td>MABS_Z</td>
+<td>FLOAT(4)</td>
+<td>Absolute magnitude in z</td></tr>
+<tr>
+<td>MABS_ERR_Z</td>
+<td>FLOAT(4)</td>
+<td>Error on absolute magnitude in z</td></tr>
+<tr>
+<td colspan="1">ZLUM</td>
+<td colspan="1">FLOAT(4)</td>
+<td colspan="1">z band luminosity, units of L_*</td></tr>
+<tr>
+<td colspan="1">ZREDMAGIC</td>
+<td colspan="1">FLOAT(4)</td>
+<td colspan="1">redMaGiC photometric redshift</td></tr>
+<tr>
+<td colspan="1">ZREDMAGIC_ERR</td>
+<td colspan="1">FLOAT(4)</td>
+<td colspan="1">error on redMaGiC photometric redshift</td></tr>
+<tr>
+<td colspan="1">CHISQ</td>
+<td colspan="1">FLOAT(4)</td>
+<td colspan="1">chi^2 of fit to redMaGiC template</td></tr>
+<tr>
+<td colspan="1">Z_SPEC</td>
+<td colspan="1">FLOAT(4)</td>
+<td colspan="1">spectroscopic redshift (-1.0 if not available)</td></tr></tbody></table>
+
+           </div>
+                
+      </des-card>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "des-docs-redmapper",
+    });
+
+
+</script>
+
+</dom>

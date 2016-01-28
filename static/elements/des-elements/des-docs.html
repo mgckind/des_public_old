@@ -1,0 +1,98 @@
+<dom-module id="des-docs">
+
+<style is="custom-style">
+
+</style>
+
+
+<template>
+
+
+<des-card   heading="DES SVA1 Data Products" >
+        
+      <div class="card-content">
+
+<h2>Description</h2>
+<p>The Dark Energy Survey (DES; <a href="http://adsabs.harvard.edu/abs/2005astro.ph.10346T">DES Collaboration, 2005</a>, <a href="http://adsabs.harvard.edu/abs/2016arXiv160100329D">DES Collaboration, 2016</a>) Science Verification (SV) period was a&nbsp;post-commissioning testing phase during which a mini-survey was performed to a depth comparable to the 5-year DES survey.&nbsp;The purpose of SV was to verify that the Dark Energy Camera (DECam;&nbsp;<a href="http://adsabs.harvard.edu/abs/2015AJ....150..150F">Flaugher et al., 2015</a>)&nbsp;system was capable of producing science-quality data at a rate that would meet the DES science requirements.&nbsp;Between 2012 November 1 and<span style="color: rgb(0,0,0);">&nbsp;2013 February 22,</span>&nbsp;<span style="color: rgb(0,0,0);">10,000+</span>&nbsp;SV exposures were collected by DECam&nbsp;and subsequently reduced with an early version of the DES Data Management (DESDM) software stack (<a href="http://adsabs.harvard.edu/abs/2011arXiv1109.6741S" style="line-height: 1.42857;">Sevilla et al. 2011</a>, <a href="http://adsabs.harvard.edu/abs/2012SPIE.8451E..0DM" style="line-height: 1.42857;">Mohr et al. 2012</a>,&nbsp;<a href="http://data.darkenergysurvey.org/aux/releasenotes/DESDMrelease.html" style="line-height: 1.42857;">Gruendl et al. in prep</a>). Both the raw and the reduced single-epoch images are available from the <a href="http://www.portal-nvo.noao.edu/" style="line-height: 1.42857;">NOAO science archive</a>.</p>
+<p>The data products provided here come from the first annual reduction of the SV images (SVA1) and consist of object catalogs, value added quantities, and ancillary maps derived from the coadded SV images.&nbsp;<a data-route="doc_gold" href="/releases/sva1/doc/gold">The SVA1 Gold Catalog</a></li> provides photometry and simple classification for objects detected in the SVA1 coadd images. Ancillary maps describing the effective magnitude limit across the SVA1 footprint are also provided. <a data-route="doc_shear" href="/releases/sva1/doc/shear">The SVA1 Shear Catalogs</a>&nbsp;provide shape information for a high-quality subset of objects in the GOLD catalog as derived by <a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J" style="line-height: 1.42857;">Jarvis et al. (2015)</a>. <a data-route="doc_photoz" href="/releases/sva1/doc/photoz"> The SVA1 Photo-z Catalogs</a> provide photometric redshift estimates for objects in the SVA1 GOLD catalog as derived in <a href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1507.05909" style="line-height: 1.42857;">Bonnett et al. (2015)</a>. Catalogs of galaxy clusters and red galaxies in the SVA1 data set are provided by the&nbsp;<a data-route="doc_redmapper" href="/releases/sva1/doc/redmapper">SVA1 redMaPPer and redMaGiC Catalogs</a>&nbsp;as derived in <a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R">Rykoff et al. (2016)</a>&nbsp;and&nbsp;<a class="external-link" href="http://adsabs.harvard.edu/abs/2015arXiv150705460R" rel="nofollow">Rozo et al. (2015)</a>.</p>
+<p><span style="color: rgb(0,0,0);">If you use an SVA1 data product in a scientific publication, we ask&nbsp;</span><span style="color: rgb(0,0,0);">that you cite the paper where the data product was derived and</span><span style="color: rgb(0,0,0);">&nbsp;add a footnote to the SVA1 release url (http://des.ncsa.illinois.edu/releases/sva1).&nbsp;We also ask that you include the standard acknowledgement for the use of public DES data found&nbsp;<a href="http://www.noao.edu/noao/library/NOAO_Publications_Acknowledgments.html">here</a>.&nbsp;</span></p>
+<p>&nbsp;</p>
+<h2>Caveats</h2>
+<p>The SVA1 data products&nbsp;<strong><span style="color: rgb(0,0,0);">do not</span></strong>&nbsp;constitute an official DES data release and are provided on an&nbsp;<strong><span style="color: rgb(0,0,0);">&quot;as is&quot;</span></strong>&nbsp;basis in support of DES publications based on SVA1 data. The SVA1 data products possess several known issues (documented in more detail below)&nbsp;arising from features in the instrument, data reduction, catalog creation, and calibration processes that were present during this early phase of data taking prior to normal operations of DES.&nbsp;</p>
+<h2>Support</h2>
+<p>Support for the SVA1 data products is very limited. The primary sources of documentation are the papers that derived these data products, and questions can be addressed to the authors of those papers. Questions about the distribution of the data or the content of these wiki pages can be submitted using the web form provided <a href="/releases/sva1/help">here</a><span style="color: rgb(255,0,0);"><span style="color: rgb(0,0,0);">. Questions and responses are tracked, and can be viewed <span style="color: rgb(51,51,51);"><a href="https://opensource.ncsa.illinois.edu/jira/projects/DESRELEASE">here</a>.</span></span></span></p>
+<h2>Documentation</h2>
+<ul>
+<li> <a data-route="doc_gold" href="/releases/sva1/doc/gold">SVA1 GOLD Catalog</a></li>
+<li> <a data-route="doc_shear" href="/releases/sva1/doc/shear">SVA1 Shear Catalogs</a></li>
+<li> <a data-route="doc_photoz" href="/releases/sva1/doc/photoz">SVA1 Photo-z Catalogs</a></li>
+<li> <a data-route="doc_redmapper" href="/releases/sva1/doc/redmapper">SVA1 redMaPPer and redMaGiC Catalogs</a></li></ul>
+<h2>Download</h2>
+<p>The full listing of downloadable files can be found&nbsp;<strong><a href="/releases/sva1/content/">here</a></strong>.</p>
+<p>The data products are described in more detail on the pages linked above and files are linked by topic below.&nbsp;Catalog files are distributed as gzipped&nbsp;<a href="http://fits.gsfc.nasa.gov/fits_documentation.html">FITS</a>&nbsp;binary tables. Ancillary depth maps are provided as&nbsp;<a href="http://healpix.jpl.nasa.gov/">HEALPix</a>&nbsp;formatted gzipped binary FITS tables.&nbsp;</p>
+<h4>SVA1 GOLD Catalog</h4>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_catalog.fits.gz">sva1_gold_r1.0_catalog.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_maglim_auto_g_n4096.fits.gz">sva1_gold_r1.0_maglim_auto_g_n4096.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_maglim_auto_r_n4096.fits.gz">sva1_gold_r1.0_maglim_auto_r_n4096.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_maglim_auto_i_n4096.fits.gz">sva1_gold_r1.0_maglim_auto_i_n4096.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_maglim_auto_z_n4096.fits.gz">sva1_gold_r1.0_maglim_auto_z_n4096.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_goodregions_04_n4096.fits.gz">sva1_gold_r1.0_goodregions_04_n4096.fits.gz</a></li></ul>
+<h4>SVA1 Shear Catalogs</h4>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_im3shape.fits.gz">sva1_gold_r1.0_im3shape.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_ngmix.fits.gz">sva1_gold_r1.0_ngmix.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_wlinfo.fits.gz">sva1_gold_r1.0_wlinfo.fits.gz</a></li></ul>
+<h4>SVA1 Photo-z Catalogs</h4>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_annz2_point.fits.gz">sva1_gold_r1.0_annz2_point.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_bpz_point.fits.gz">sva1_gold_r1.0_bpz_point.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_skynet_point.fits.gz">sva1_gold_r1.0_skynet_point.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_tpz_point.fits.gz">sva1_gold_r1.0_tpz_point.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_annz2_pdf.fits.gz">sva1_gold_r1.0_annz2_pdf.fits.gz</a><a href="http://des.ncsa.illinois.edu/content/sva1_gold_r1.0_annz2_point.fits.gz"></a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_bpz_pdf.fits.gz">sva1_gold_r1.0_bpz_pdf.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_skynet_pdf.fits.gz">sva1_gold_r1.0_skynet_pdf.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_tpz_pdf.fits.gz">sva1_gold_r1.0_tpz_pdf.fits.gz</a><a href="http://des.ncsa.illinois.edu/content/sva1_gold_r1.0_tpz_point.fits.gz"></a></li></ul>
+<h4>SVA1 Redmapper/Redmagic Catalogs</h4>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_catalog.fits.gz">redmapper_sva1_public_v6.3_catalog.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_members.fits.gz">redmapper_sva1_public_v6.3_members.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_randoms.fits.gz">redmapper_sva1_public_v6.3_randoms.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_zmask.fits.gz">redmapper_sva1_public_v6.3_zmask.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1_public_v6.3_area.fits.gz">redmapper_sva1_public_v6.3_area.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_catalog.fits.gz">redmapper_sva1-expanded_public_v6.3_catalog.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_members.fits.gz">redmapper_sva1-expanded_public_v6.3_members.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_randoms.fits.gz">redmapper_sva1-expanded_public_v6.3_randoms.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_zmask.fits.gz">redmapper_sva1-expanded_public_v6.3_zmask.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmapper_sva1-expanded_public_v6.3_area.fits.gz">redmapper_sva1-expanded_public_v6.3_area.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmagic_sva1_public_v6.3_faint.fits.gz">redmagic_sva1_public_v6.3_faint.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/redmagic_sva1_public_v6.3_bright.fits.gz">redmagic_sva1_public_v6.3_bright.fits.gz</a></li></ul>
+<h2><span style="color: rgb(0,0,0);">References</span></h2>
+<ul>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2005astro.ph.10346T">DES Collaboration (2005)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2016arXiv160100329D">DES Collaboration (2016)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1507.05909">Bonnett et al. (2015)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2015AJ....150..150F">Flaugher et al., (2015</a>)</li>
+<li class="p1"><a href="http://data.darkenergysurvey.org/aux/releasenotes/DESDMrelease.html">Gruendl et al. in prep</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J">Jarvis et al. (2015)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2015arXiv150900870R">Rykoff et al. (2015)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2015arXiv150705460R">Rozo et al. (2015)</a></li>
+<li class="p1"><a href="http://adsabs.harvard.edu/abs/2016arXiv160100621R">Rykoff et al. (2016)</a></li></ul>
+
+          </div>
+                
+      </des-card>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "des-docs",
+
+    });
+
+
+</script>
+
+</dom>

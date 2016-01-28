@@ -1,0 +1,616 @@
+<dom-module id="des-docs-shear">
+
+<style is="custom-style">
+
+</style>
+
+
+<template>
+
+
+<des-card heading="SVA1 Shear Catalogs">
+        
+      <div class="card-content">
+<h2>Overview</h2>
+<p>Details on the production of the SVA1 shear catalogs, including the raw measurements, object selection, and many tests of the accuracy of the measured shear estimates, can be found in <a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J">Jarvis et al. (2015</a>). &nbsp;Users should see that paper for any questions about the content of the catalogs. Further questions can be addressed to Mike Jarvis, the corresponding author of that paper, whose email address is given therein. &nbsp;On this page, we merely describe the structure of the files being distributed, including brief descriptions of each of the columns included in the files, often pointing to the relevant sections of&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J">Jarvis et al. (2015</a>)&nbsp;for more details.</p><hr />
+<h2>Download</h2>
+<ul>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_im3shape.fits.gz">sva1_gold_r1.0_im3shape.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_ngmix.fits.gz">sva1_gold_r1.0_ngmix.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_wlinfo.fits.gz">sva1_gold_r1.0_wlinfo.fits.gz</a><br /><br /></li></ul>
+<hr />
+<h2>Im3Shape Catalog</h2>
+<p>This catalog includes the shear estimates made using the Im3Shape algorithm, described in Section 7.3 of Jarvis et al, 2015. &nbsp;</p>
+<h3>Catalog Description</h3>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data&nbsp;Type&nbsp;(Bytes)</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier.</td></tr>
+<tr>
+<td colspan="1">
+<p>E_1<br />E_2</p>
+<p>&nbsp;</p></td>
+<td colspan="1">FLOAT (8)<br />FLOAT (8)</td>
+<td colspan="1">The raw (biased) shear estimator.</td></tr>
+<tr>
+<td>NBC_M<br />NBC_C1<br />NBC_C2&nbsp;</td>
+<td>FLOAT (8)<br />FLOAT (8)<br />FLOAT&nbsp;(8)</td>
+<td>
+<p>The multiplicative bias correction.<br />The additive bias corrections for E_1 and E_2.</p>
+<p>See Section 9.2 of Jarvis et al, 2015 for instructions on how the bias corrections should be applied to an ensemble of galaxies.</p>
+<p>Aside: NBC stands for &quot;noise bias correction&quot;, although in fact the correction also accounts for model and selection biases.</p></td></tr>
+<tr>
+<td colspan="1">W</td>
+<td colspan="1">FLOAT (8)</td>
+<td colspan="1">
+<p>The recommended weight to use for each galaxy.</p>
+<p>See Section 7.3.4 in Jarvis et al, 2015 for the method used to construct the weights.&nbsp;</p></td></tr>
+<tr>
+<td colspan="1">ERROR_FLAG<br />INFO_FLAG&nbsp;</td>
+<td colspan="1">
+<p>INT (4)<br />INT&nbsp;(4)</p></td>
+<td colspan="1">
+<p>Two flags describing potential problems with the shear estimate.</p>
+<p>See the following tables for descriptions of what the different bits in the flags mean. Objects with non-zero ERROR_FLAG should not be used for any scientific analysis. Objects with non-zero INFO_FLAG may be acceptable for some use cases, but the conservative selection is to only use objects with INFO_FLAG&nbsp;== 0.</p></td></tr>
+<tr>
+<td>
+<p>SNR_W<br />SNR_R&nbsp;</p></td>
+<td>FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td>
+<p>The standard optimal weight S/N estimate.<br />The &quot;roundified&quot; S/N estimate.</p>
+<p>See Section 7.1 of Jarvis et al, 2015 for an explanation of the differences between these two signal-to-noise estimates. In particular, it is recommended that any selection involving S/N beyond the cuts we have already applied should use SNR_W, not SNR_R.&nbsp;(This is different for ngmix!)</p></td></tr>
+<tr>
+<td colspan="1">FLUX_R</td>
+<td colspan="1">FLOAT&nbsp;(4)</td>
+<td colspan="1">
+<p>An estimate of the r-band flux (in ADU) that comes out of the same fitting process as was used for the shapes.</p>
+<p>This should only be used as a diagnostic. For accurate, calibrated fluxes, users should use the flux values in the Gold catalogs.</p></td></tr>
+<tr>
+<td>RADIUS</td>
+<td>FLOAT (4)</td>
+<td>
+<p>An estimate of the radius of the galaxy in arcsec.</p></td></tr>
+<tr>
+<td colspan="1">IS_BULGE</td>
+<td colspan="1">INT (4)</td>
+<td colspan="1">
+<p>1 if the model used was a bulge model, 0 if it was a disc model.</p></td></tr>
+<tr>
+<td>
+<p>MEAN_RGPP_RP<br /><br /></p></td>
+<td>FLOAT (4)</td>
+<td>
+<p>The mean value of the radius of the observed object divided by the radius of the PSF among the different observations of the galaxy.</p>
+<p>The is referred to as R_gp / R_p in Jarvis et al, 2015. It is first introduced in Section 7.3.2.</p></td></tr>
+<tr>
+<td colspan="1">MEAN_PSF_E1<br />MEAN_PSF_E2<br />MEAN_PSF_FWHM&nbsp;</td>
+<td colspan="1">FLOAT (8)<br />FLOAT (8)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">
+<p>The mean measured ellipticity and size of the PSF for the different exposures that went into the shear estimates for this galaxy.&nbsp;</p></td></tr>
+<tr>
+<td colspan="1">
+<p>RA_SHIFT<br />DEC_SHIFT&nbsp;</p></td>
+<td colspan="1">FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">The shift in the nominal centroid position of the galaxy model relative to the RA, DEC position from the SVA1 Gold catalog.&nbsp;(arcsec)</td></tr>
+<tr>
+<td colspan="1">CHI2<br />LIKELIHOOD&nbsp;</td>
+<td colspan="1">FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">The chi^2 per pixel of the fitted galaxy model.<br />The likelihood of the fitted galaxy model.&nbsp;</td></tr>
+<tr>
+<td colspan="1">STAMP_SIZE</td>
+<td colspan="1">INT (4)</td>
+<td colspan="1">The size (in pixels) of the postage stamp images used for this galaxy.</td></tr>
+<tr>
+<td colspan="1">N_EXPOSURE</td>
+<td colspan="1">INT (4)</td>
+<td colspan="1">The number of exposures used for constraining the model of the galaxy.</td></tr></tbody></table>
+<p>&nbsp;</p>
+<div class="page" title="Page 36">
+<div class="layoutArea">
+<div class="column">
+<h3>Meaning of ERROR_FLAG in Im3Shape Catalog</h3></div></div></div>
+<table>
+<tbody>
+<tr>
+<th>Position</th>
+<th>Value</th>
+<th>Description</th></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>Im3Shape failed completely.</td></tr>
+<tr>
+<td colspan="1">
+<p>1</p></td>
+<td colspan="1">2</td>
+<td colspan="1">Minimizer failed to converge.</td></tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>Tiny ellipticity e &lt; 10^-4; Im3Shape fit failed.</td></tr>
+<tr>
+<td colspan="1">3</td>
+<td colspan="1">8</td>
+<td colspan="1">e1 or e2 outside of (-1,1).</td></tr>
+<tr>
+<td colspan="1">4</td>
+<td colspan="1">16</td>
+<td colspan="1">Radius &gt; 20 arcsec.</td></tr>
+<tr>
+<td colspan="1">5</td>
+<td colspan="1">32</td>
+<td colspan="1">Rgp/Rp &gt; 6.</td></tr>
+<tr>
+<td colspan="1">6</td>
+<td colspan="1">64</td>
+<td colspan="1">Negative or nan Rgp/Rp.</td></tr>
+<tr>
+<td colspan="1">7</td>
+<td colspan="1">128</td>
+<td colspan="1">S/N &lt; 1.</td></tr>
+<tr>
+<td colspan="1">8</td>
+<td colspan="1">256</td>
+<td colspan="1">chi^2 per effective pixel &gt; 3.</td></tr>
+<tr>
+<td colspan="1">9</td>
+<td colspan="1">512</td>
+<td colspan="1">Normed residuals &lt; -20 somewhere.</td></tr>
+<tr>
+<td colspan="1">10</td>
+<td colspan="1">1024</td>
+<td colspan="1">Normed residuals &gt; 20 somewhere.</td></tr>
+<tr>
+<td colspan="1">11</td>
+<td colspan="1">2048</td>
+<td colspan="1">RA_SHIFT &gt; 10 arcsec.</td></tr>
+<tr>
+<td colspan="1">12</td>
+<td colspan="1">4096</td>
+<td colspan="1">DEC_SHIFT &gt; 10 arcsec.</td></tr>
+<tr>
+<td colspan="1">13</td>
+<td colspan="1">8192</td>
+<td colspan="1">Failed to measure FWHM of PSF or galaxy.</td></tr>
+<tr>
+<td colspan="1">14</td>
+<td colspan="1">16384</td>
+<td colspan="1">r-band SExtractor flag has 0x4 or higher.</td></tr>
+<tr>
+<td colspan="1">30</td>
+<td colspan="1">1073741824&nbsp;</td>
+<td colspan="1">No attempt at a fit was made due to cuts prior to running im3shape.</td></tr></tbody></table>
+<div class="page" title="Page 36">
+<div class="layoutArea">
+<div class="column">
+<p>&nbsp;</p></div></div></div>
+<h3>Meaning of INFO_FLAG in Im3Shape Catalog</h3>
+<p>The order of the flags are such that the larger values are more egregious problems. &nbsp;This potentially allows a user to cut with something like INFO_FLAG &lt; 512 for instance, to select galaxies that may have some bits at positions 0-8 set, but nothing higher than that. &nbsp;This is why some flag items are redundant with other items at higher bit positions.</p>
+<table>
+<tbody>
+<tr>
+<th>Position</th>
+<th>Value</th>
+<th>Description</th></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>r-band SExtractor flag 0x1, indicating bright neighbors.</td></tr>
+<tr>
+<td colspan="1">
+<p>1</p></td>
+<td colspan="1">2</td>
+<td colspan="1">r-band SExtractor flag 0x2, indicating blending.</td></tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>Mask fraction &gt; 0.5.</td></tr>
+<tr>
+<td colspan="1">3</td>
+<td colspan="1">8</td>
+<td colspan="1">Model image &lt; -0.01 somewhere.</td></tr>
+<tr>
+<td colspan="1">4</td>
+<td colspan="1">16</td>
+<td colspan="1">Rgp/Rp &lt; 1.15.</td></tr>
+<tr>
+<td colspan="1">5</td>
+<td colspan="1">32</td>
+<td colspan="1">Radius &gt; 5 arcsec.</td></tr>
+<tr>
+<td colspan="1">6</td>
+<td colspan="1">64</td>
+<td colspan="1">Centroid moved more than 0.6 arcsec from nominal.</td></tr>
+<tr>
+<td colspan="1">7</td>
+<td colspan="1">128</td>
+<td colspan="1">chi^2 per effective pixel &gt; 1.25.</td></tr>
+<tr>
+<td colspan="1">8</td>
+<td colspan="1">256</td>
+<td colspan="1">Rgp/Rp &gt; 3.5.</td></tr>
+<tr>
+<td colspan="1">9</td>
+<td colspan="1">512</td>
+<td colspan="1">Normed residuals &lt; -2 somewhere.</td></tr>
+<tr>
+<td colspan="1">10</td>
+<td colspan="1">1024</td>
+<td colspan="1">Normed residuals &gt; 2 somewhere.</td></tr>
+<tr>
+<td colspan="1">11</td>
+<td colspan="1">2048</td>
+<td colspan="1">Declination &lt; 61 degrees S, the limit where we have good photometry.</td></tr>
+<tr>
+<td colspan="1">12</td>
+<td colspan="1">4096</td>
+<td colspan="1">(S/N)_w &gt; 10^5.</td></tr>
+<tr>
+<td colspan="1">13</td>
+<td colspan="1">8192</td>
+<td colspan="1">Radius &gt; 10 arcsec.</td></tr>
+<tr>
+<td colspan="1">14</td>
+<td colspan="1">16384</td>
+<td colspan="1">(S/N)_w &lt; 10.</td></tr>
+<tr>
+<td colspan="1">15</td>
+<td colspan="1">
+<div class="page" title="Page 36">
+<div class="layoutArea">
+<div class="column">
+<p>32768</p></div></div></div></td>
+<td colspan="1">Model image &lt; -0.05 somewhere.</td></tr>
+<tr>
+<td colspan="1">16</td>
+<td colspan="1">65536</td>
+<td colspan="1">chi^2 per effective pixel &lt; 0.8.</td></tr>
+<tr>
+<td colspan="1">17</td>
+<td colspan="1">131072</td>
+<td colspan="1">More than 70% of fitted flux is in masked region.</td></tr>
+<tr>
+<td colspan="1">18</td>
+<td colspan="1">262144</td>
+<td colspan="1">Model is completely negative.</td></tr>
+<tr>
+<td colspan="1">19</td>
+<td colspan="1">524288</td>
+<td colspan="1">chi^2 per effective pixel &gt; 2.</td></tr>
+<tr>
+<td colspan="1">20</td>
+<td colspan="1">1048576</td>
+<td colspan="1">PSF FWHM &gt; 10 arcsec</td></tr>
+<tr>
+<td colspan="1">21</td>
+<td colspan="1">2097152</td>
+<td colspan="1">Negative PSF FWHM.</td></tr>
+<tr>
+<td colspan="1">22</td>
+<td colspan="1">4194304</td>
+<td colspan="1">Rgp/Rp &lt; 1.1.</td></tr>
+<tr>
+<td colspan="1">23</td>
+<td colspan="1">8388608</td>
+<td colspan="1">Centroid more than 1 arcsec from nominal.</td></tr>
+<tr>
+<td colspan="1">24</td>
+<td colspan="1">16777216</td>
+<td colspan="1">Mask fraction &gt; 0.75.</td></tr>
+<tr>
+<td colspan="1">25</td>
+<td colspan="1">33554432</td>
+<td colspan="1">One or more error flags is set.</td></tr></tbody></table>
+<p>&nbsp;</p>
+<hr />
+<h2>NGMix Catalog</h2>
+<p>This catalog includes the shear estimates made using the NGMix algorithm, described in Section 7.4 of Jarvis et al, 2015. &nbsp;</p>
+<h3>Catalog Description</h3>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data&nbsp;Type&nbsp;(Bytes)</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier.</td></tr>
+<tr>
+<td colspan="1">
+<p>E_1<br />E_2</p>
+<p>&nbsp;</p></td>
+<td colspan="1">FLOAT (8)<br />FLOAT&nbsp;(8)</td>
+<td colspan="1">The raw (biased) shear estimator.</td></tr>
+<tr>
+<td>SENS_AVG</td>
+<td>FLOAT (8)</td>
+<td>
+<p>The sensitivity estimate.</p>
+<p>See Section 9.2 of Jarvis et al, 2015 for instructions on how the sensitivity should be applied to an ensemble of galaxies.&nbsp;</p></td></tr>
+<tr>
+<td colspan="1">W</td>
+<td colspan="1">FLOAT (8)</td>
+<td colspan="1">
+<p>The recommended weight to use for each galaxy.</p>
+<p>See Eqn 7.12 in Jarvis et al, 2015 for the exact definition of this choice.</p></td></tr>
+<tr>
+<td colspan="1">
+<p>E_COV_1_1<br />E_COV_1_2<br />E_COV_2_1<br />E_COV_2_2&nbsp;</p></td>
+<td colspan="1">FLOAT (8)<br />FLOAT (8)<br />FLOAT (8)<br />FLOAT&nbsp;(8)</td>
+<td colspan="1">The estimated covariance matrix of (E_1, E_2).</td></tr>
+<tr>
+<td>ERROR_FLAG</td>
+<td>
+<p>INT (4)</p></td>
+<td>
+<p>A flag describing potential problems with the shear estimate.</p>
+<p>See the following table for descriptions of what the different bits in the flags mean. Only objects with ERROR_FLAG == 0 should be used for any scientific analysis.</p></td></tr>
+<tr>
+<td>SNR_W<br />SNR_R&nbsp;</td>
+<td>FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td>
+<p>The standard optimal weight S/N estimate.<br />The &quot;roundified&quot; S/N estimate.</p>
+<p>See Section 7.1 of Jarvis et al, 2015 for an explanation of the differences between these two signal-to-noise estimates. In particular, it is recommended that any selection involving S/N beyond the cuts we have already applied should use SNR_R, not SNR_W.&nbsp;(This is different for im3shape!)</p></td></tr>
+<tr>
+<td colspan="1">FLUX_I<br />MAG_I&nbsp;</td>
+<td colspan="1">FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">
+<p>An estimate of the i-band flux (and corresponding magnitude) that comes out <br />of the same fitting process as was used for the shapes.</p>
+<p>These should only be used as a diagnostic. For accurate, calibrated fluxes, users should use the flux values in the Gold catalogs.&nbsp;</p></td></tr>
+<tr>
+<td colspan="1">
+<p>T<br />T_ERR<br />T_R</p></td>
+<td colspan="1">FLOAT (4)<br />FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">
+<p>An estimate of the size, using the T = Ixx + Iyy definition of size, in arcsec^2.<br />The estimated uncertainty in the estimate of T.<br />An estimate of the size that the object would have had if it were round.</p>
+<p>See Section 8.3.2 in Jarvis et al, 2015 for a description of the difference between these two size estimates. In particular, the formula for T_R&nbsp;is Eqn. 8.4. It is recommended that any selection involving size beyond the cuts we have already applied should use T_R, not T.&nbsp;</p></td></tr>
+<tr>
+<td colspan="1">SNR_T<br />SNR_T_R&nbsp;</td>
+<td colspan="1">FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">
+<p>The estimated S/N of T and T_R.</p></td></tr>
+<tr>
+<td>LOG10_SB_I</td>
+<td>FLOAT (4)</td>
+<td>
+<p>The base 10 logarithm of an estimate of the surface brightness of the object in units of (ADU / arcsec^2). This is a derived value, calculated as log10(abs(FLUX_I / T)).</p></td></tr>
+<tr>
+<td colspan="1">
+<p>MEAN_PSF_E1<br />MEAN_PSF_E2<br />MEAN_PSF_T&nbsp;</p></td>
+<td colspan="1">
+<p>FLOAT (8)<br />FLOAT (8)<br />FLOAT&nbsp;(4)</p></td>
+<td colspan="1">
+<p>The mean measured ellipticity and size of the PSF for the different exposures that went into the shear estimates for this galaxy.<br /><br /></p></td></tr>
+<tr>
+<td colspan="1">SENS_1<br />SENS_2&nbsp;</td>
+<td colspan="1">FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td colspan="1">
+<p>The raw sensitivity estimates for E_1 and E_2.</p>
+<p>We recommend using SENS_AVG, which is the average of these two quantities, for both E_1 and E_2, rather than these individual estimates.</p></td></tr>
+<tr>
+<td colspan="1">ARATE</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">Acceptance rate. Galaxies with 0.4 &lt; ARATE &lt; 0.6 are considered good.</td></tr>
+<tr>
+<td colspan="1">STAMP_SIZE</td>
+<td colspan="1">INT (4)</td>
+<td colspan="1">The size (in pixels) of the postage stamp images used for this galaxy.</td></tr>
+<tr>
+<td colspan="1">MASK_FRAC</td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">The fraction of the pixels in all the postage stamps used for this galaxy that were masked for some reason (neighboring objects, dead pixels, bad columns, cosmic rays, etc.)&nbsp;</td></tr></tbody></table>
+<p>&nbsp;</p>
+<div class="page" title="Page 36">
+<div class="layoutArea">
+<div class="column">
+<h3>Meaning of ERROR_FLAG in NGMix Catalog</h3></div></div></div>
+<table>
+<tbody>
+<tr>
+<th>Position</th>
+<th>Value</th>
+<th>Description</th></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>There were no postage stamps for this object.</td></tr>
+<tr>
+<td colspan="1">
+<p>1</p></td>
+<td colspan="1">2</td>
+<td colspan="1">PSF fitting failed for all epochs.</td></tr>
+<tr>
+<td colspan="1">3</td>
+<td colspan="1">8</td>
+<td colspan="1">Galaxy fitting failed.</td></tr>
+<tr>
+<td colspan="1">4</td>
+<td colspan="1">16</td>
+<td colspan="1">Stamp size was larger than 2048. Galaxy skipped.</td></tr>
+<tr>
+<td colspan="1">6</td>
+<td colspan="1">64</td>
+<td colspan="1">The S/N of the PSF flux was &lt; 4 in all bands.</td></tr>
+<tr>
+<td colspan="1">7</td>
+<td colspan="1">128</td>
+<td colspan="1">Utter failure of the fitting. For this release, this flag was set when no valid guesses for the fitters could be generated.</td></tr>
+<tr>
+<td colspan="1">9</td>
+<td colspan="1">512</td>
+<td colspan="1">No attempt was made for round measures because of prior failure.</td></tr>
+<tr>
+<td colspan="1">10</td>
+<td colspan="1">1024</td>
+<td colspan="1">
+<p class="p1"><span class="s1">Round model could not be evaluated within the allowed region of parameter space.</span></p></td></tr>
+<tr>
+<td colspan="1">11</td>
+<td colspan="1">2048</td>
+<td colspan="1">Fitting failed when trying to estimate SNR_T_R.</td></tr>
+<tr>
+<td colspan="1">30</td>
+<td colspan="1">
+<div class="page" title="Page 37">
+<div class="layoutArea">
+<div class="column">
+<p>1073741824&nbsp;</p></div></div></div></td>
+<td colspan="1">No attempt at a fit was made due to other error flags or cuts prior to running ngmix.</td></tr></tbody></table>
+<p>&nbsp;</p>
+<hr />
+<h2>WL Info Catalog</h2>
+<p>This catalog is merely for convenience, containing only information derived from other SVA1 catalogs. &nbsp;Internally, within DES WL, we found it convenient to have the more commonly needed columns from some other catalogs collated here so most weak lensing scientific analyses would only need this file plus one or both shear catalogs. &nbsp;We provide it here in the same thought that it might be useful for some users.</p>
+<h3>Catalog Description</h3>
+<table>
+<tbody>
+<tr>
+<th>Column Name</th>
+<th>Data&nbsp;Type&nbsp;(Bytes)</th>
+<th>Description</th></tr>
+<tr>
+<td>COADD_OBJECTS_ID</td>
+<td>INT (8)</td>
+<td>Unique object identifier.</td></tr>
+<tr>
+<td colspan="1">
+<p>RA<br />DEC&nbsp;</p></td>
+<td colspan="1">FLOAT (8)<br />FLOAT&nbsp;(8)</td>
+<td colspan="1">The position of the object in the sky. (Both given in degrees.)</td></tr>
+<tr>
+<td>MAG_AUTO_G<br />MAG_AUTO_R<br />MAG_AUTO_I<br />MAG_AUTO_Z&nbsp;</td>
+<td>FLOAT (4)<br />FLOAT (4)<br />FLOAT (4)<br />FLOAT&nbsp;(4)</td>
+<td>
+<p>Photometric magnitudes in g,r,i,z, bands. (mag = 99.0 indicates no detection in that band.)</p></td></tr>
+<tr>
+<td colspan="1">PHOTOZ_BIN</td>
+<td colspan="1">INT (4)</td>
+<td colspan="1">
+<p>The cosmological photometric redshift bin (0, 1, or 2), as described in <a href="http://adsabs.harvard.edu/abs/2015arXiv150705552T">DES Collaboration, 2015</a>. (-99 if unable to place in any bin due to other flags.)</p></td></tr>
+<tr>
+<td colspan="1">
+<p>MEAN_PHOTOZ</p></td>
+<td colspan="1">FLOAT (4)</td>
+<td colspan="1">A point estimator of the photometric redshift for this object from the SkyNet photo-z catalog. (-99.0 if no point estimate is available.)</td></tr>
+<tr>
+<td>SVA1_FLAG</td>
+<td>
+<p>INT (4)</p></td>
+<td>
+<p>A flag describing potential problems with this object prior to the shear estimation process.</p>
+<p>See the following table for descriptions of what the different bits in the flags mean. Only objects with SVA1_FLAG == 0 should be used for any scientific analysis.</p></td></tr>
+<tr>
+<td>IM3SHAPE_FLAG</td>
+<td>INT (4)</td>
+<td>
+<p>0 if this object has a good im3shape shear estimate. 1 if not.</p>
+<p>This flag includes all cuts recommended for the im3shape catalog by Jarvis et al, 2015. cf. Section 9.1 and Appendix B. Using columns from the Im3Shape Catalog, this column is the following derived quantity:</p>
+<p>IM3SHAPE_FLAG = ~((ERROR_FLAG == 0) &amp; (INFO_FLAG == 0) &amp; (SNR_W &gt; 15) &amp; (MEAN_RGPP_RP &gt; 1.2))</p></td></tr>
+<tr>
+<td>NGMIX_FLAG&nbsp;</td>
+<td>INT (4)</td>
+<td>
+<p>0 if this object has a good ngmix shear estimate. 1 if not.</p>
+<p>This flag includes all cuts recommended for the ngmix catalog by Jarvis et al, 2015. cf. Section 9.1 and Appendix B. Using columns from the NGMix Catalog, this column is the following derived quantity:</p>
+<p>NGMIX_FLAG = ~((ERROR_FLAG == 0) &amp; (0.4 &lt; ARATE &lt; 0.6) &amp; (SENS_AVG &gt; 0) &amp; (SNR_R &gt; 15) &amp; (T_R / T_PSF &gt; 0.15))</p></td></tr></tbody></table>
+<p>&nbsp;</p>
+<div class="page" title="Page 38">
+<div class="layoutArea">
+<div class="column">
+<p>&nbsp;</p></div></div></div>
+<div class="page" title="Page 36">
+<div class="layoutArea">
+<div class="column">
+<h3>Meaning of SVA1_FLAG in WL Info Catalog</h3></div></div></div>
+<table>
+<tbody>
+<tr>
+<th>Position</th>
+<th>Value</th>
+<th>Description</th></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>i-band SExtractor flag has 0x1 set, indicating bright neighbors</td></tr>
+<tr>
+<td colspan="1">
+<p>1</p></td>
+<td colspan="1">2</td>
+<td colspan="1">i-band SExtractor flag has 0x2 set, indicating blending</td></tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>
+<p>Modest classification calls this object a star. See Section 2.2 in Jarvis et al, 2015. This corresponds to (bright_test or locus_test) described there.</p></td></tr>
+<tr>
+<td colspan="1">3</td>
+<td colspan="1">8</td>
+<td colspan="1">Modest classification calls this object junk. See Section 2.2 in Jarvis et al, 2015. This corresponds to faint_psf_test described there.</td></tr>
+<tr>
+<td colspan="1">4</td>
+<td colspan="1">16</td>
+<td colspan="1">In region with a high density of objects with &quot;crazy colors&quot;.
+<div class="page" title="Page 30">
+<div class="section">
+<div class="layoutArea">
+<div class="column">
+<p>&ldquo;Crazy colors&rdquo; mean any of the following: g&minus;r &lt; &minus;1, g&minus;r &gt; 4, i&minus;z &lt; &minus;1, or i&minus;z &gt; 4, as defined in Jarvis et al, 2015, Section 2.1</p></div></div></div></div></td></tr>
+<tr>
+<td colspan="1">5</td>
+<td colspan="1">32</td>
+<td colspan="1">In region with a high density of objects with large centroid shifts between bandpasses. See Jarvis et al, 2015, Section 2.1 for details.</td></tr>
+<tr>
+<td colspan="1">6</td>
+<td colspan="1">64</td>
+<td colspan="1">Near a 2MASS star with J_M &lt; 12. The mask radius is flux dependent, up to 120 arcmin for the brightest stars. See Jarvis et al, Section 2.1.</td></tr>
+<tr>
+<td colspan="1">7</td>
+<td colspan="1">128</td>
+<td colspan="1">Large offset in g and i-band windowed positions.</td></tr>
+<tr>
+<td colspan="1">8</td>
+<td colspan="1">
+<div class="page" title="Page 37">
+<div class="layoutArea">
+<div class="column">
+<p>256</p></div></div></div></td>
+<td colspan="1">Object was not measured by NGMix.</td></tr>
+<tr>
+<td colspan="1">9</td>
+<td colspan="1">512</td>
+<td colspan="1">Likely star according to NGMix T + T_ERR &lt; 0.02 arcsec^2.</td></tr>
+<tr>
+<td colspan="1">10</td>
+<td colspan="1">1024</td>
+<td colspan="1">Very low surface brightness according to NGMix.</td></tr>
+<tr>
+<td colspan="1">11</td>
+<td colspan="1">2048</td>
+<td colspan="1">Object does not satisfy good measurement flags in NGMix.</td></tr>
+<tr>
+<td colspan="1">12</td>
+<td colspan="1">4096</td>
+<td colspan="1">Object does not have a valid magnitude in all g,r,i,z bands. (That is, at least one of them is invalid.) Dropout galaxies tend to produce poor photometric redshift estimates, so we excluded them.</td></tr></tbody></table>
+
+          </div>
+                
+      </des-card>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "des-docs-shear",
+    });
+
+
+</script>
+
+</dom>
