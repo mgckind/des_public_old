@@ -23286,6 +23286,7 @@ be used as the label of the toolbar via `aria-labelledby`.
         if (newtest) {
       app.$.sub_rel.open();
       app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
       app.$.sva1_menu.select(1);
       }
       newtest = false;
@@ -23794,6 +23795,9 @@ be used as the label of the toolbar via `aria-labelledby`.
       Polymer({
       is: "des-release",
       _sva1: function(event){
+          app.$.sub_rel.open();
+          app.$.sub_rel_sva1.open();
+          app.$.rel_menu.select(0);
           page('/releases/sva1');
       },
 
@@ -23901,10 +23905,10 @@ We are grateful for the extraordinary contributions of our CTIO colleagues and t
       <div class="card-content">
           This is the unofficial release of the DES Science Verification (SV) data products, for
           a detailed description of this release please see the
-          <a data-route="documentation" href="{{baseUrl}}sva1/doc">Documentation page</a>.
-          Check <a data-route="content" href="{{baseUrl}}sva1/content">here</a>
-          to see the list of available files. For questions not covered in the <a data-route="documentation" href="{{baseUrl}}sva1/doc">Documentation</a>
-           please use this <a href="/releases/sva1/help">Help</a> form.
+          <a on-click="_documentation" href="#">Documentation page</a>.
+          Check <a on-click="_download" href="#">here</a>
+          to see the list of available files. For questions not covered in the <a on-click="_documentation" href="#">Documentation</a>
+           please use this <a on-click="_help" href="#">Help</a> form.
 
           </div>
                 <div class="card-content">
@@ -23926,12 +23930,24 @@ We are grateful for the extraordinary contributions of our CTIO colleagues and t
       Polymer({
       is: "des-sva1",
       _download: function(event){
+          app.$.sub_rel.open();
+          app.$.sub_rel_sva1.open();
+            app.$.sva1_menu.select(0);
           page('/releases/sva1/content');
       },
       _help: function(event){
+        app.$.sub_rel.open();
+          app.$.sub_rel_sva1.open();
+            app.$.sva1_menu.select(2);
+          page('/releases/sva1/content');
+
           page('/releases/sva1/help');
       },
       _documentation: function(event){
+              app.$.sub_rel.open();
+            app.$.sub_rel_sva1.open();
+            app.$.sub_rel_sva1_doc.open();
+            app.$.sva1_menu.select(1);
           page('/releases/sva1/doc');
       },
 
@@ -23952,7 +23968,7 @@ We are grateful for the extraordinary contributions of our CTIO colleagues and t
     <des-card>
     <div class="card-content">
     The content of these files are detailed in the
-    <a data-route="documentation" href="/releases/sva1/doc">
+    <a on-click="_documentation" href="#">
         Documentation</a> page
         </div>
     </des-card>
@@ -24214,6 +24230,14 @@ contains a list of urls for all files </div>
 <script>
       Polymer({
       is: "des-content",
+      _documentation: function(event){
+              app.$.sub_rel.open();
+            app.$.sub_rel_sva1.open();
+            app.$.sub_rel_sva1_doc.open();
+            app.$.sva1_menu.select(1);
+          page('/releases/sva1/doc');
+      },
+
     });
 
 
@@ -24245,10 +24269,10 @@ contains a list of urls for all files </div>
 <p>Support for the SVA1 data products is very limited. The primary sources of documentation are the papers that derived these data products, and questions can be addressed to the authors of those papers. Questions about the distribution of the data or the content of these wiki pages can be submitted using the web form provided <a href="/releases/sva1/help">here</a><span style="color: rgb(255,0,0);"><span style="color: rgb(0,0,0);">. Questions and responses are tracked, and can be viewed <span style="color: rgb(51,51,51);"><a href="https://opensource.ncsa.illinois.edu/jira/projects/DESRELEASE">here</a>.</span></span></span></p>
 <h2>Documentation</h2>
 <ul>
-<li> <a data-route="doc_gold" href="/releases/sva1/doc/gold">SVA1 GOLD Catalog</a></li>
-<li> <a data-route="doc_shear" href="/releases/sva1/doc/shear">SVA1 Shear Catalogs</a></li>
-<li> <a data-route="doc_photoz" href="/releases/sva1/doc/photoz">SVA1 Photo-z Catalogs</a></li>
-<li> <a data-route="doc_redmapper" href="/releases/sva1/doc/redmapper">SVA1 redMaPPer and redMaGiC Catalogs</a></li></ul>
+<li> <a on-click="_doc_gold" href="#">SVA1 GOLD Catalog</a></li>
+<li> <a on-click="_doc_shear" href="#">SVA1 Shear Catalogs</a></li>
+<li> <a on-click="_doc_photoz" href="#">SVA1 Photo-z Catalogs</a></li>
+<li> <a on-click="_doc_redmapper" href="#">SVA1 redMaPPer and redMaGiC Catalogs</a></li></ul>
 <h2>Download</h2>
 <p>The full listing of downloadable files can be found&nbsp;<strong><a href="/releases/sva1/content/">here</a></strong>.</p>
 <p>The data products are described in more detail on the pages linked above and files are linked by topic below.&nbsp;Catalog files are distributed as gzipped&nbsp;<a href="http://fits.gsfc.nasa.gov/fits_documentation.html">FITS</a>&nbsp;binary tables. Ancillary depth maps are provided as&nbsp;<a href="http://healpix.jpl.nasa.gov/">HEALPix</a>&nbsp;formatted gzipped binary FITS tables.&nbsp;</p>
@@ -24311,6 +24335,36 @@ contains a list of urls for all files </div>
 <script>
       Polymer({
       is: "des-docs",
+     _doc_gold: function(event){
+        app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(0);
+      page('/releases/sva1/doc/gold');
+      },
+     _doc_shear: function(event){
+        app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(1);
+      page('/releases/sva1/doc/shear');
+      },
+     _doc_photoz: function(event){
+        app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(2);
+      page('/releases/sva1/doc/photoz');
+      },
+     _doc_redmapper: function(event){
+        app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(3);
+      page('/releases/sva1/doc/redmapper');
+      },
+
+      
 
     });
 
@@ -25832,13 +25886,13 @@ Indicating one or more relevant topics will help us properly direct your questio
             <hr>
             <div class="form1" id="form3" style="width:350px">
             <p><b>Topics</b></p>
-            <paper-checkbox name="topic" value="gold"> Gold catalogs</paper-checkbox><br>
-            <paper-checkbox name="topic" value="shear"> Shear catalogs</paper-checkbox> <br>
-            <paper-checkbox name="topic" value="photoz"> Photo-z catalogs </paper-checkbox> <br>
-            <paper-checkbox name="topic" value="redmapper"> RedMapper catalogs </paper-checkbox><br>
-            <paper-checkbox name="topic" value="files"> File formats / File access </paper-checkbox><br>
-            <paper-checkbox name="topic" value="general"> General question </paper-checkbox><br>
-            <paper-checkbox name="topic" value="other"> Other </paper-checkbox><br>
+            <paper-checkbox name="topic" value="Gold Catalogs"> Gold catalogs</paper-checkbox><br>
+            <paper-checkbox name="topic" value="Shear Catalogs"> Shear catalogs</paper-checkbox> <br>
+            <paper-checkbox name="topic" value="Photo-z Catalogs"> Photo-z catalogs </paper-checkbox> <br>
+            <paper-checkbox name="topic" value="RedMapper Catalogs"> RedMapper catalogs </paper-checkbox><br>
+            <paper-checkbox name="topic" value="Files format/access"> File formats / File access </paper-checkbox><br>
+            <paper-checkbox name="topic" value="General Questions"> General questions </paper-checkbox><br>
+            <paper-checkbox name="topic" value="Other"> Other </paper-checkbox><br>
             </div>
             <hr>
             <div id="form4" style="width:350px">

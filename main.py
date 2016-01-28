@@ -7,6 +7,7 @@ import tornado.options
 import tornado.web
 import tornado.log
 import Settings
+import jira_ticket
 from tornado.options import define, options
 
 define("port", default=5000, help="run on the given port", type=int)
@@ -36,12 +37,8 @@ class HelpHandler(tornado.web.RequestHandler):
         subject = self.get_argument("subject", "")
         question = self.get_argument("question", "")
         topic = self.get_argument("topic", "")
-        print('+-+-+-+-', name)
-        print('+-+-+-+-', last)
-        print('+-+-+-+-', email)
-        print('+-+-+-+-', topic)
-        print('+-+-+-+-', subject)
-        print('+-+-+-+-', question)
+        topics = topic.replace(',','\n')
+        jira_ticket.create_ticket(name, last, email, topics, subject, question)
         self.set_status(200)
         self.flush()
         self.finish()
