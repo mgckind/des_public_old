@@ -34,6 +34,9 @@
       Polymer({
       is: "des-release",
       _sva1: function(event){
+          app.$.sub_rel.open();
+          app.$.sub_rel_sva1.open();
+          app.$.rel_menu.select(0);
           page('/releases/sva1');
       },
 

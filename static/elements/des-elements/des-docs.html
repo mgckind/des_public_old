@@ -23,10 +23,10 @@
 <p>Support for the SVA1 data products is very limited. The primary sources of documentation are the papers that derived these data products, and questions can be addressed to the authors of those papers. Questions about the distribution of the data or the content of these wiki pages can be submitted using the web form provided <a href="/releases/sva1/help">here</a><span style="color: rgb(255,0,0);"><span style="color: rgb(0,0,0);">. Questions and responses are tracked, and can be viewed <span style="color: rgb(51,51,51);"><a href="https://opensource.ncsa.illinois.edu/jira/projects/DESRELEASE">here</a>.</span></span></span></p>
 <h2>Documentation</h2>
 <ul>
-<li> <a data-route="doc_gold" href="/releases/sva1/doc/gold">SVA1 GOLD Catalog</a></li>
-<li> <a data-route="doc_shear" href="/releases/sva1/doc/shear">SVA1 Shear Catalogs</a></li>
-<li> <a data-route="doc_photoz" href="/releases/sva1/doc/photoz">SVA1 Photo-z Catalogs</a></li>
-<li> <a data-route="doc_redmapper" href="/releases/sva1/doc/redmapper">SVA1 redMaPPer and redMaGiC Catalogs</a></li></ul>
+<li> <a on-click="_doc_gold" href="#">SVA1 GOLD Catalog</a></li>
+<li> <a on-click="_doc_shear" href="#">SVA1 Shear Catalogs</a></li>
+<li> <a on-click="_doc_photoz" href="#">SVA1 Photo-z Catalogs</a></li>
+<li> <a on-click="_doc_redmapper" href="#">SVA1 redMaPPer and redMaGiC Catalogs</a></li></ul>
 <h2>Download</h2>
 <p>The full listing of downloadable files can be found&nbsp;<strong><a href="/releases/sva1/content/">here</a></strong>.</p>
 <p>The data products are described in more detail on the pages linked above and files are linked by topic below.&nbsp;Catalog files are distributed as gzipped&nbsp;<a href="http://fits.gsfc.nasa.gov/fits_documentation.html">FITS</a>&nbsp;binary tables. Ancillary depth maps are provided as&nbsp;<a href="http://healpix.jpl.nasa.gov/">HEALPix</a>&nbsp;formatted gzipped binary FITS tables.&nbsp;</p>
@@ -89,6 +89,36 @@
 <script>
       Polymer({
       is: "des-docs",
+     _doc_gold: function(event){
+        app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(0);
+      page('/releases/sva1/doc/gold');
+      },
+     _doc_shear: function(event){
+        app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(1);
+      page('/releases/sva1/doc/shear');
+      },
+     _doc_photoz: function(event){
+        app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(2);
+      page('/releases/sva1/doc/photoz');
+      },
+     _doc_redmapper: function(event){
+        app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sub_rel_sva1_doc.open();
+      app.$.sva1_doc_menu.select(3);
+      page('/releases/sva1/doc/redmapper');
+      },
+
+      
 
     });
 

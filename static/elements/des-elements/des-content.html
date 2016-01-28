@@ -9,7 +9,7 @@
     <des-card>
     <div class="card-content" >
     The content of these files are detailed in the
-    <a data-route="documentation" href="/releases/sva1/doc">
+    <a on-click="_documentation" href="#">
         Documentation</a> page
         </div>
     </des-card>
@@ -271,6 +271,14 @@ contains a list of urls for all files </div>
 <script>
       Polymer({
       is: "des-content",
+      _documentation: function(event){
+              app.$.sub_rel.open();
+            app.$.sub_rel_sva1.open();
+            app.$.sub_rel_sva1_doc.open();
+            app.$.sva1_menu.select(1);
+          page('/releases/sva1/doc');
+      },
+
     });
 
 

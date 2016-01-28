@@ -20,11 +20,11 @@
       <div class="card-content">
           This is the unofficial release of the DES Science Verification (SV) data products, for
           a detailed description of this release please see the
-          <a data-route="documentation" href="{{baseUrl}}sva1/doc">Documentation page</a>.
-          Check <a data-route="content" href="{{baseUrl}}sva1/content">here</a>
+          <a on-click="_documentation" href="#">Documentation page</a>.
+          Check <a on-click="_download" href="#">here</a>
           to see the list of available files. For questions not covered in the <a
-              data-route="documentation" href="{{baseUrl}}sva1/doc">Documentation</a>
-           please use this <a href="/releases/sva1/help">Help</a> form.
+              on-click="_documentation" href="#">Documentation</a>
+           please use this <a on-click="_help" href="#">Help</a> form.
 
           </div>
                 <div class="card-content">
@@ -49,12 +49,24 @@
       Polymer({
       is: "des-sva1",
       _download: function(event){
+          app.$.sub_rel.open();
+          app.$.sub_rel_sva1.open();
+            app.$.sva1_menu.select(0);
           page('/releases/sva1/content');
       },
       _help: function(event){
+        app.$.sub_rel.open();
+          app.$.sub_rel_sva1.open();
+            app.$.sva1_menu.select(2);
+          page('/releases/sva1/content');
+
           page('/releases/sva1/help');
       },
       _documentation: function(event){
+              app.$.sub_rel.open();
+            app.$.sub_rel_sva1.open();
+            app.$.sub_rel_sva1_doc.open();
+            app.$.sva1_menu.select(1);
           page('/releases/sva1/doc');
       },
 
