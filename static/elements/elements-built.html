@@ -25858,33 +25858,34 @@ tpz_bin_edges = np.linspace(0.005-dz/2, 2.0-dz/2, 201)
       <div class="card-content">
 
 	<div><meta http-equiv="Content-Type" content="text/html; charset=utf-8">Please complete this form with any questions related to the DES SVA1
-GOLD public data release that were not addressed by the <a href="/releases/sva1/doc">Documentation page</a>.
+GOLD public data release that were not addressed by the <a on-click="_documentation" href="#">Documentation page</a>.
 Indicating one or more relevant topics will help us properly direct your question.
 <br><br>
 <b>Notes:</b><br>
 * The SVA1 data products do not constitute an official DES data release and are provided on an "as is" basis in support of DES publications based on SVA1 data<br>
-* Support for the SVA1 data products is very limited. The primary sources of documentation are the papers that derived these data product as described in the <a href="/releases/sva1/doc">Documentation page</a></div>
+* Support for the SVA1 data products is very limited. The primary sources of documentation are the papers that derived these data product as described in the <a on-click="_documentation" href="#">Documentation page</a></div>
    
 
 <div>
 
       <div class="card-content">
-
-        <form is="iron-form" id="form" method="post">
             <hr>
-            <div class="form1" id="form1" style="width:350px">
+            <div class="horizontal layout center-justified">
+            <paper-card heading="Please complete this form" elevation="4" style="padding:20px;">
+        <form is="iron-form" id="form" method="post">
+            <div class="form1" id="form1" style="width:380px">
             <p><b>Name</b></p>
-            <paper-input name="name" label="First" required="" style="width:350px"></paper-input>
-            <paper-input name="lastname" label="Last" required="" style="width:350px"></paper-input>
+            <paper-input name="name" label="First" required="" style="width:380px"></paper-input>
+            <paper-input name="lastname" label="Last" required="" style="width:380px"></paper-input>
             </div>
             <hr>
-            <div class="form1" id="form2" style="width:350px">
+            <div class="form1" id="form2" style="width:380px">
             <p><b>Contact</b></p>
-            <paper-input name="email" label="Email" required="" style="width:350px">
+            <paper-input name="email" label="Email" required="" style="width:380px">
             </paper-input>
             </div>
             <hr>
-            <div class="form1" id="form3" style="width:350px">
+            <div class="form1" id="form3" style="width:380px">
             <p><b>Topics</b></p>
             <paper-checkbox name="topic" value="Gold Catalogs"> Gold catalogs</paper-checkbox><br>
             <paper-checkbox name="topic" value="Shear Catalogs"> Shear catalogs</paper-checkbox> <br>
@@ -25895,11 +25896,11 @@ Indicating one or more relevant topics will help us properly direct your questio
             <paper-checkbox name="topic" value="Other"> Other </paper-checkbox><br>
             </div>
             <hr>
-            <div id="form4" style="width:350px">
-            <paper-input class="form1" name="subject" label="Subject" required="" style="width:350px"></paper-input> <br>
+            <div id="form4" style="width:380px">
+            <paper-input class="form1" name="subject" label="Subject" required="" style="width:380px"></paper-input> <br>
             
             <p><b>Question</b></p>
-            <iron-autogrow-textarea name="question" rows="10" style="width:350px" class="form1" required=""></iron-autogrow-textarea><br><br>
+            <iron-autogrow-textarea name="question" rows="10" style="width:380px" class="form1" required=""></iron-autogrow-textarea><br><br>
 
             </div>
             <hr>
@@ -25907,6 +25908,8 @@ Indicating one or more relevant topics will help us properly direct your questio
 
 
         </form>
+        </paper-card>
+        </div>
           </div>
                 
       
@@ -25932,6 +25935,14 @@ Indicating one or more relevant topics will help us properly direct your questio
         }
 
     },
+     _documentation: function(event){
+              app.$.sub_rel.open();
+            app.$.sub_rel_sva1.open();
+            app.$.sub_rel_sva1_doc.open();
+            app.$.sva1_menu.select(1);
+          page('/releases/sva1/doc');
+      },
+
 
     });
 
