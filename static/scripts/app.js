@@ -16,4 +16,13 @@
     // imports are loaded and elements have been registered
   });
 
+    // Scroll page to top and expand header
+  app.scrollPageToTop = function() {
+    app.$.headerPanelMain.scrollToTop(true);
+  };
+
+  app.closeDrawer = function() {
+    app.$.paperDrawerPanel.closeDrawer();
+  };
+
 })(document);
