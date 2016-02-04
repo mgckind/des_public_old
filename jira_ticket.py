@@ -3,6 +3,27 @@ This utility cretae jira tickets from help form
 """
 from jira.client import JIRA
 import base64
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.header import Header
+from email.utils import formataddr
+import smtplib
+import urllib
+
+def send_email():
+    subject="New Ticket in DESRELEASE"
+    toemail = 'mcarras2@illinois.edu'
+    fromemail = 'devnull@ncsa.illinois.edu'
+    s = smtplib.SMTP('smtp.ncsa.illinois.edu')
+    text = "https://opensource.ncsa.illinois.edu/jira/projects/DESRELEASE"
+    MP1 = MIMEText(text, 'plain')
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = subject
+    msg['From'] = formataddr((str(Header('DESRELEASE JIRA', 'utf-8')), fromemail))
+    msg['To'] = toemail
+    msg.attach(MP1)
+    s.sendmail(fromemail, toemail, msg.as_string())
+    s.quit()
 
 def create_ticket(first, last, email, topics, subject, question):
     f=open('.access','r')
@@ -46,3 +67,4 @@ def create_ticket(first, last, email, topics, subject, question):
         #'reporter' : {'name': 'desdm-wufoo'},
         }
     jira.create_issue(fields=issue)
+    send_email()
