@@ -39,10 +39,10 @@ def create_ticket(first, last, email, topics, subject, question):
     """ % (email, first, last, email, topics, question)
 
     issue = {
-        'project' : {'key': 'DESHELP'},
+        'project' : {'key': 'DESRELEASE'},
         'issuetype': {'name': 'Task'},
         'summary': 'Q: %s' % subject,
         'description' : body,
-        'reporter' : {'name': 'desdm-wufoo'},
+        #'reporter' : {'name': 'desdm-wufoo'},
         }
     jira.create_issue(fields=issue)
