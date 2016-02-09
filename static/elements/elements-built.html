@@ -25880,21 +25880,21 @@ Support for the SVA1 data products is very limited. The primary sources of docum
 
       <div class="card-content">
             <div class="horizontal layout center-justified">
-            <paper-card heading="Please complete this form" elevation="4" style="padding:20px;">
+            <paper-card heading="Please complete this form" elevation="4" style="padding:20px; width:100%; max-width:600px;  ">
         <form is="iron-form" id="form" method="post">
-            <div class="form1" id="form1" style="width:380px">
+            <div class="form1" id="form1">
             <p><b>Name</b></p>
-            <paper-input name="name" label="First" required="" style="width:380px"></paper-input>
-            <paper-input name="lastname" label="Last" required="" style="width:380px"></paper-input>
+            <paper-input name="name" label="First" required=""></paper-input>
+            <paper-input name="lastname" label="Last" required=""> </paper-input>
             </div>
             <hr>
-            <div class="form1" id="form2" style="width:380px">
+            <div class="form1" id="form2">
             <p><b>Contact</b></p>
-            <paper-input name="email" label="Email" required="" style="width:380px">
+            <paper-input name="email" label="Email" required="">
             </paper-input>
             </div>
             <hr>
-            <div class="form1" id="form3" style="width:380px">
+            <div class="form1" id="form3">
             <p><b>Topics</b></p>
             <paper-checkbox name="topic" value="Gold Catalogs"> Gold catalogs</paper-checkbox><br>
             <paper-checkbox name="topic" value="Shear Catalogs"> Shear catalogs</paper-checkbox> <br>
@@ -25905,13 +25905,13 @@ Support for the SVA1 data products is very limited. The primary sources of docum
             <paper-checkbox name="topic" value="Other"> Other </paper-checkbox><br>
             </div>
             <hr>
-            <div id="form4" style="width:380px">
-            <paper-input class="form1" name="subject" label="Subject" required="" style="width:380px"></paper-input> <br>
+            <div id="form4">
+            <paper-input class="form1" name="subject" label="Subject" required=""></paper-input> <br>
+            </div>
             
             <p><b>Question</b></p>
-            <iron-autogrow-textarea name="question" rows="10" style="width:380px" class="form1" required=""></iron-autogrow-textarea><br><br>
+            <iron-autogrow-textarea name="question" rows="10" style="width:100%" class="form1" required=""></iron-autogrow-textarea><br><br>
 
-            </div>
             <hr>
                 <paper-button raised="" class="cc" on-click="_submit">Submit Form</paper-button>
 
