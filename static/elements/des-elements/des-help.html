@@ -12,25 +12,34 @@
 
 <template>
 
-            <div class="horizontal layout center-justified" >
 
 <des-card  heading="DES SVA1 GOLD Release Help Form">
         
       <div class="card-content">
-
-	<div><meta http-equiv="Content-Type" content="text/html; charset=utf-8">Please complete this form with any questions related to the DES SVA1
+Please complete this form with any questions related to the DES SVA1
+    
 GOLD public data release that were not addressed by the <a on-click="_documentation" href="#">Documentation page</a>.
 Indicating one or more relevant topics will help us properly direct your question.
-<br><br>
-<b>Notes:</b><br />
-* The SVA1 data products do not constitute an official DES data release and are provided on an "as is" basis in support of DES publications based on SVA1 data<br>
-* Support for the SVA1 data products is very limited. The primary sources of documentation are the papers that derived these data product as described in the <a on-click="_documentation" href="#">Documentation page</a></div>
-   
+</div>
 
-<div>
+<div class="card-content">
+
+<b>Notes:</b><br>
+<ul>
+<li>
+The SVA1 data products do not constitute an official DES data release and are provided on an "as is" basis in support of DES publications based on SVA1 data</li>
+<li>
+Support for the SVA1 data products is very limited. The primary sources of documentation are the papers that derived these data product as described in the <a on-click="_documentation" href="#">Documentation page</a>
+</li>
+</ul>
+</div>
+<hr> 
+</des-card>
+
+<des-card>
+
 
       <div class="card-content">
-            <hr>
             <div class="horizontal layout center-justified" >
             <paper-card heading="Please complete this form" elevation="4" style="padding:20px;">
         <form is="iron-form" id="form" method="post">
@@ -68,7 +77,6 @@ Indicating one or more relevant topics will help us properly direct your questio
                 <paper-button raised class="cc"
               on-click="_submit">Submit Form</paper-button>
 
-
         </form>
         </paper-card>
         </div>
@@ -76,7 +84,6 @@ Indicating one or more relevant topics will help us properly direct your questio
                 
       </des-card>
 <paper-toast  id="toast1" text="Form has been submitted!, Thanks!"> </paper-toast>
-</div>
 
 
 </template>
