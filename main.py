@@ -10,7 +10,7 @@ import Settings
 import jira_ticket
 from tornado.options import define, options
 
-define("port", default=5000, help="run on the given port", type=int)
+define("port", default=8888, help="run on the given port", type=int)
 
 class MainHandler(tornado.web.RequestHandler):
     """
