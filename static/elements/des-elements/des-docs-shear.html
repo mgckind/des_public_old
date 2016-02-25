@@ -15,7 +15,7 @@
 <p>Details on the production of the SVA1 shear catalogs, including the raw measurements, object selection, and many tests of the accuracy of the measured shear estimates, can be found in <a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J">Jarvis et al. (2015</a>). &nbsp;Users should see that paper for any questions about the content of the catalogs. Further questions can be addressed to Mike Jarvis, the corresponding author of that paper, whose email address is given therein. &nbsp;On this page, we merely describe the structure of the files being distributed, including brief descriptions of each of the columns included in the files, often pointing to the relevant sections of&nbsp;<a href="http://adsabs.harvard.edu/abs/2015arXiv150705603J">Jarvis et al. (2015</a>)&nbsp;for more details.</p><hr />
 <h2>Download</h2>
 <ul>
-<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_im3shape.fits.gz" target="_parent">sva1_gold_r1.0_im3shape.fits.gz</a></li>
+<li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.1_im3shape.fits.gz" target="_parent">sva1_gold_r1.1_im3shape.fits.gz</a></li>
 <li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_ngmix.fits.gz" target="_parent">sva1_gold_r1.0_ngmix.fits.gz</a></li>
 <li><a href="http://des.ncsa.illinois.edu/releases/sva1/content/sva1_gold_r1.0_wlinfo.fits.gz" target="_parent">sva1_gold_r1.0_wlinfo.fits.gz</a><br /><br /></li></ul>
 <hr />
@@ -597,6 +597,13 @@
 <td colspan="1">12</td>
 <td colspan="1">4096</td>
 <td colspan="1">Object does not have a valid magnitude in all g,r,i,z bands. (That is, at least one of them is invalid.) Dropout galaxies tend to produce poor photometric redshift estimates, so we excluded them.</td></tr></tbody></table>
+
+
+<p>&nbsp;</p>
+<h1>Revision History</h1>
+<ul>
+<li>sva1_gold_r1.0_im3shape.fits.gz&nbsp;
+<p>This version of the im3shape catalog incorrectly had all non-zero INFO_FLAG values set to 33554432 and all non-zero ERROR_FLAG values set to 1073741824.&nbsp; This was fixed in r1.1.</p></li></ul>
 
           </div>
                 
