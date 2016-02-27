@@ -1,0 +1,110 @@
+<dom-module id="des-login">
+
+<style is="custom-style">
+
+.form1:hover{
+    background: var(--paper-green-50);
+
+}
+
+</style>
+
+
+<template>
+
+
+<des-card  heading="DES Log in">
+        
+      <div class="card-content">
+Please complete this form with any questions related to the DES SVA1
+    
+GOLD public data release that were not addressed by the <a on-click="_documentation" href="#">Documentation page</a>.
+Indicating one or more relevant topics will help us properly direct your question.
+</div>
+
+<div class="card-content">
+
+<b>Notes:</b><br>
+<ul>
+<li>
+The SVA1 data products do not constitute an official DES data release and are provided on an "as is" basis in support of DES publications based on SVA1 data</li>
+<li>
+Support for the SVA1 data products is very limited. The primary sources of documentation are the papers that derived these data product as described in the <a on-click="_documentation" href="#">Documentation page</a>
+</li>
+</ul>
+</div>
+<hr> 
+</des-card>
+
+
+<des-card>
+<div class="card-content">
+<div class="horizontal layout center-justified" style = "padding:40px;">
+      <paper-card
+              heading="The content of these pages are restricted." elevation="3">
+      <div class="card-content">
+
+      <!--<div class="horizontal-section">-->
+        <form  is="iron-form" id="userpass" method="post">
+          <paper-input name="username" label="UserName"  required></paper-input><br>
+          <paper-input name="password" type="password" label="Password"  required></paper-input><br>
+          <div class="horizontal layout center-justified">
+          <paper-button raised class="mylogin" on-click="_submit"> 
+          <i class="fa fa-sign-in"></i> Login</paper-button></div>
+           <div class="horizontal layout center-justified">
+        <paper-spinner id="spinner" class="big"></paper-spinner> </div>
+          
+        </form>
+        <div id="divError" class="errormessage"><b>{{errormessage}}</b></div>
+        </div>
+        </paper-card>
+        <!--</div>-->
+</div>
+
+</div>
+</des-card>
+
+
+
+</template>
+
+      var button = document.querySelector('paper-button');
+      console.log("Submitted!");
+      document.querySelector('paper-spinner').active = true;
+      document.getElementById('userpass').submit();
+      button.disabled = true;
+      var errm = document.getElementById('divError');
+      errm.style.display = "none";
+
+<script>
+      Polymer({
+      is: "des-login",
+    _submit : function(event){
+        var valid = document.getElementById('form').validate();
+        if (valid) {
+        document.querySelector('paper-spinner').active = true;
+        document.getElementById('userpass').submit();
+        document.getElementById('userpass').reset();
+        var errm = document.getElementById('divError');
+        errm.style.display = "none";
+        }
+        else{
+        document.getElementById('userpass').submit();
+
+        }
+
+    },
+     _documentation: function(event){
+              app.$.sub_rel.open();
+            app.$.sub_rel_sva1.open();
+            app.$.sub_rel_sva1_doc.open();
+            app.$.sva1_menu.select(1);
+          page('/releases/sva1/doc');
+      },
+
+
+    });
+
+</script>
+
+</dom>

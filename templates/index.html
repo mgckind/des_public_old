@@ -15,9 +15,11 @@
 <script src="/static/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 <script src="/static/scripts/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<link rel="import" href="/static/elements/elements-built.html">
+<link rel="import" href="/static/elements/elements.html">
 
 <style is="custom-style" include="shared-styles"></style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="https://rawgit.com/gka/d3-jetpack/master/d3-jetpack.js"></script>
 </head>
 <!-- BODY -->
 <body unresolved>
@@ -106,6 +108,15 @@
           </a>
         </paper-submenu> <!-- 4 -->
 
+        {% if chichi %}
+        <hr>
+        <paper-submenu> <!--  5 -->
+          <a class="menu-trigger" data-route="internal" href="/internal">
+            <paper-item >Internal</paper-item>
+          </a>
+        </paper-submenu> <!-- 5 -->
+        {% end %}
+
         </paper-menu>
 
       </paper-scroll-header-panel>
@@ -116,6 +127,9 @@
           <paper-toolbar id="mainToolbar"  class="bw">
      <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
 <span class="title">DARK ENERGY SURVEY Data Management</span>
+     {% if chichi  %} 
+     <paper-icon-button icon="power-settings-new" onclick="window.open('/auth/logout/','_self',false);" ></paper-icon-button>
+     {% end %}
      </paper-toolbar> 
 
         <!-- Main Content -->
@@ -178,6 +192,15 @@
             <des-thanks-big></des-thanks-big>
             <des-thanks></des-thanks>
             </section>
+
+            <section data-route="login">
+            <des-login></des-login>
+            </section>
+
+            <section data-route="internal">
+            <des-internal></des-internal>
+            </section>
+
             
             <section data-route="404">
             <div class="horizontal layout center-justified" style = "padding:50px;">
@@ -204,6 +227,7 @@
   <script src="/static/scripts/app.js"></script>
   <!-- endbuild-->
 
+<!--
 <script type="text/javascript">
 var sc_project=10767484;
 var sc_invisible=1;
@@ -220,6 +244,7 @@ href="http://statcounter.com/free-web-stats/"
 target="_blank"><img class="statcounter"
 src="http://c.statcounter.com/10767484/0/cb84a738/1/"
 alt="web statistics"></a></div></noscript>
+-->
 
 </body>
 

@@ -1,0 +1,131 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="author" content="Matias Carrasco Kind">
+<title>DES Data Management</title>
+
+<link rel="stylesheet" href="/static/styles/font-awesome/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/scripts/styles/darkula.css">
+<link rel="stylesheet" href="/static/styles/main.css">
+
+<script src="/static/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+<link rel="import" href="/static/elements/elements.html">
+
+  <style is="custom-style">
+
+     .bw {
+    background-color: black;
+    color:white;
+  }
+     .wb {
+    background-color: white;
+    color:black;
+  }
+
+      body {
+      font-family: 'Roboto', 'Noto', sans-serif;
+      font-size: 18px;
+      margin: 0;
+      background-color: var(--paper-grey-200);
+    }
+
+    #cards {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 40px;
+    }
+    paper-card {
+      width: 500px;
+      margin-bottom: 16px;
+    }
+
+    .errormessage{
+      display: block;
+      color : red;
+      text-align: center;
+    }
+
+     paper-menu {
+      display: block;
+    }
+    paper-dropdown-menu {
+      text-align: left;
+      margin: auto;
+      width: 100%;
+    }
+    paper-dropdown-menu.dbs {
+      width: 100%;
+    }
+    paper-tabs {
+      width: 100%;
+    }
+
+    paper-input {
+      width: 100%;
+    }
+
+    paper-spinner.big{width:50px;height:50px;}
+
+    .mylogin {
+    background: var(--paper-green-50);
+    color: black;
+    }
+    .mylogin::shadow paper-ripple {
+    color: green;
+    }
+    .mylogin:hover{
+        background: var(--paper-green-100);
+    }
+
+  </style>
+
+</head>
+<body>
+      <paper-toolbar id="mainToolbar"  class="bw">
+<span class="title">DARK ENERGY SURVEY Data Management</span>
+     </paper-toolbar> 
+
+<div class="horizontal layout center-justified" style = "padding:40px;">
+      <paper-card
+              heading="The content of these pages are restricted." elevation="3">
+      <div class="card-content">
+
+      <!--<div class="horizontal-section">-->
+        <form  id="userpass" method="post">
+          <paper-input name="username" label="UserName"  required></paper-input><br>
+          <paper-input name="password" type="password" label="Password"  required></paper-input><br>
+          <div class="horizontal layout center-justified">
+          <paper-button raised class="mylogin" onclick="clickSubmit()"> 
+          <i class="fa fa-sign-in"></i> Login</paper-button></div>
+           <div class="horizontal layout center-justified">
+        <paper-spinner id="spinner" class="big"></paper-spinner> </div>
+          
+        </form>
+        <div id="divError" class="errormessage"><b>{{errormessage}}</b></div>
+        </div>
+        </paper-card>
+        <!--</div>-->
+</div>
+
+
+
+<script>
+    function clickSubmit() {
+      var button = document.querySelector('paper-button');
+      console.log("Submitted!");
+      document.querySelector('paper-spinner').active = true;
+      document.getElementById('userpass').submit();
+      button.disabled = true;
+      var errm = document.getElementById('divError');
+      errm.style.display = "none";
+      //$("#divError").fadeToggle("200");
+    }
+  </script>
+
+</body>
+</html>

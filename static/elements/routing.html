@@ -2,6 +2,7 @@
 <script>
   window.addEventListener('WebComponentsReady', function() {
     var newtest = true;
+    var userin = false;
 
     if (window.location.port === '') {  // if production
       page.base(app.baseUrl.replace(/\/$/, ''));
@@ -130,6 +131,27 @@
     page('/thanks', function() {
       app.route = 'thanks';
     });
+
+
+    page('/internal', function() {
+      app.route = 'internal';
+    });
+
+    //page('/auth/login/', function(ctx, next) {
+      //app.route = 'login';
+      //next();
+     // var nxt = ctx.querystring.substring(5)
+    //  console.log(nxt, userin);
+     // if (userin) {
+      //  page.redirect(nxt);
+     // }
+     // else {
+     //   app.route = 'login';
+     // }
+    //});
+
+
+
     
     page('/contact/gold', function() {
       app.route = 'gold';
