@@ -6,48 +6,7 @@ body {
   font: 12px sans-serif;
 }
     body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px;}
-    th { text-align: left; }
-    th, td { padding: 0 1em 0.5ex 0;}
-    th.center, td.center { text-align: center; }
-    th.num, td.num { text-align: right; }
 
-  .axis path, .axis line {
-      fill: none;
-      stroke: #000;
-      shape-rendering: crispEdges;
-  }
-  path.line {
-      fill: none;
-      stroke-width: 1px;
-  }
-  .zoomOut {
-      fill: #66a;
-      cursor: pointer;
-  }
-  .zoomOutText {
-      pointer-events: none;
-      fill : #ccc;
-  }
-
-.circleb {
-}
-
-  .zoomOverlay {
-      pointer-events: auto;
-      fill:'black';
-      opacity:0.1;
-  }
-  .band {
-      fill : blue;
-      opacity: 0.1;
-      stroke-width: 1px;
-      stroke: blue;
-  }
-
-  .focus circle {
-  fill: none;
-  stroke: steelblue;
-}
 
 
 
@@ -56,7 +15,7 @@ body {
 
 <template>
 
-<des-card  heading="Internal page">
+<des-card  heading="DESDM Services Status">
 
 <div class="card-content" id="monitor">
 </div>
@@ -230,6 +189,10 @@ body {
 
  svg.append("g")
       .attr("class", "x axis")
+      .style("fill","black")
+      .style("stroke","black")
+      .style("stroke-width","0")
+      .attr("shape-rendering","crispEdges")
       .call(xAxis)
       .attr("transform", "translate(0," + height + ")")
       .append("text")
@@ -267,6 +230,10 @@ body {
       .attr("height", 0)
       .attr("x", 0)
       .attr("y", 0)
+      .style("fill" , "blue")
+      .style("opacity" ,"0.1")
+      .style("stroke-width","1px")
+      .style("stroke", "blue")
       .attr("class", "band");
 
 
@@ -361,6 +328,8 @@ svg.append("path")
          .attr("class", "line line1")
          .attr("clip-path", "url(#clip)")
         .style("stroke", colors[i])
+        .style("fill","none")
+        .style("stroke-width", "1px")
         .attr("d", line);
 
         svg.append("g")
@@ -372,6 +341,7 @@ svg.append("path")
 
         svg.append("g")
         .append("text")
+        .style("font-size","12px")
         .attr("x",8+91*i+8)
         .attr("y",14)
         .style("fill",  'black')
@@ -417,8 +387,9 @@ svg.append("path")
                 .attr("height", 20)
                 .attr("x", 9)
                 .attr("dy", "15")
+                .style("font-size","12px")
                 .style("fill","gold")
-                .text('Hola');
+                .text('');
 
 
 
@@ -426,6 +397,7 @@ svg.append("path")
     .append("text") 
     .attr("x", 2)
       .attr("y", -31)
+      .style("font-size","12px")
       .text("Click below or drag a selection");
 
 
@@ -438,6 +410,8 @@ svg.append("path")
       .attr("height", 20)
       .attr("x", 0)
       .attr("y", -24)
+      .style("fill","#66a")
+      .attr("cursor","pointer")
       .on("click", function() {
         zoomOut();
       });
@@ -449,6 +423,9 @@ svg.append("path")
       .attr("height", 20)
       .attr("x", 2)
       .attr("y", -9)
+      .style("fill","white")
+      .style("font-size","12px")
+      .attr("pointer-events", "none")
       .text("Last 10 days");
 
 var zoomlast5 = svg.append("g");
@@ -459,6 +436,8 @@ var zoomlast5 = svg.append("g");
       .attr("height", 20)
       .attr("x", 85)
       .attr("y", -24)
+      .style("fill","#66a")
+      .attr("cursor","pointer")
       .on("click", function() {
         zoomLast5();
       });
@@ -470,6 +449,9 @@ var zoomlast5 = svg.append("g");
       .attr("height", 20)
       .attr("x", 2+85)
       .attr("y", -9)
+      .style("fill","white")
+      .attr("pointer-events", "none")
+      .style("font-size","12px")
       .text("Last 5 days");
 
 var zoomlast = svg.append("g");
@@ -480,6 +462,8 @@ var zoomlast = svg.append("g");
       .attr("height", 20)
       .attr("x", 85+85)
       .attr("y", -24)
+      .style("fill","#66a")
+      .attr("cursor","pointer")
       .on("click", function() {
         zoomLast();
       });
@@ -491,6 +475,9 @@ var zoomlast = svg.append("g");
       .attr("height", 20)
       .attr("x", 2+85+85)
       .attr("y", -9)
+      .style("fill","white")
+      .attr("pointer-events", "none")
+      .style("font-size","12px")
       .text("Last 24 hours");
 
 
