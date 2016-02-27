@@ -78,6 +78,9 @@ class Application(tornado.web.Application):
             (r"/auth/logout/", login.AuthLogoutHandler),
             (r"/releases/sva1/help", HelpHandler),
             (r"/internal", PrivateHandler),
+            (r"/internal/", PrivateHandler),
+            (r"/internal/status", PrivateHandler),
+            (r"/internal/status/", PrivateHandler),
             (r"/releases/sva1/content/(.*)", tornado.web.StaticFileHandler,\
             {'path':Settings.SVA1_PATH}),
             ]

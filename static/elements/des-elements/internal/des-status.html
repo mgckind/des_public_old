@@ -1,26 +1,29 @@
-<dom-module id="des-internal">
+<dom-module id="des-status">
 
 <style is="custom-style">
 
-body {
-  font: 12px sans-serif;
-}
-    body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px;}
+        paper-card {
+        margin-top: 0px;
+        width: 100%;
+        min-width: 1000px;
 
+    }
 
-
+ .headc {
+      --paper-card-header-color: var(--paper-red-500);
+}   
 
 </style>
 
 
 <template>
 
-<des-card  heading="DESDM Services Status">
+<paper-card  heading="DESDM Services Status" elevation="0" class="headc" >
 
 <div class="card-content" id="monitor">
 </div>
 
-</des-card>
+</paper-card>
 
 </template>
 
@@ -29,7 +32,7 @@ body {
 
 
       Polymer({
-      is: "des-internal",
+      is: "des-status",
 
       _draw: function(){
  var margin0 = {
@@ -49,6 +52,16 @@ body {
 
 
 
+
+    function getsize(){
+        var ww = window.innerWidth;
+        if (ww < 600){
+            return "none"
+        }
+        else {
+            return "auto"
+        }
+    };
 
 
     
@@ -248,6 +261,7 @@ body {
         .attr("height", height)
       .style("fill", "black")
       .style("opacity","0.1")
+      .attr("pointer-events", getsize())
       //.on("mousedown", function(){console.log('test');})
       //.attr("id","overlay")
       .call(drag);

@@ -15,7 +15,7 @@
 <script src="/static/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 <script src="/static/scripts/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<link rel="import" href="/static/elements/elements.html">
+<link rel="import" href="/static/elements/elements-built.html">
 
 <style is="custom-style" include="shared-styles"></style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
@@ -110,9 +110,10 @@
 
         {% if chichi %}
         <hr>
+        <p disabled style="padding-left: 30px; margin-top:-10px; font-size:12px;">(Internal Pages)</p>
         <paper-submenu> <!--  5 -->
-          <a class="menu-trigger" data-route="internal" href="/internal">
-            <paper-item >Internal</paper-item>
+          <a class="menu-trigger" data-route="status" href="/internal/status">
+            <paper-item >DESDM status</paper-item>
           </a>
         </paper-submenu> <!-- 5 -->
         {% end %}
@@ -128,7 +129,9 @@
      <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
 <span class="title">DARK ENERGY SURVEY Data Management</span>
      {% if chichi  %} 
-     <paper-icon-button icon="power-settings-new" onclick="window.open('/auth/logout/','_self',false);" ></paper-icon-button>
+     <paper-icon-button icon="power-settings-new" onclick="window.open('/auth/logout/','_self',false);" class="smallp"></paper-icon-button>
+     {% else %}
+     <paper-icon-button icon="lock" onclick="window.open('/internal/','_self',false);" class="smallp"></paper-icon-button>
      {% end %}
      </paper-toolbar> 
 
@@ -197,6 +200,10 @@
             <des-login></des-login>
             </section>
 
+            <section data-route="status">
+            <des-status></des-status>
+            </section>
+            
             <section data-route="internal">
             <des-internal></des-internal>
             </section>
@@ -227,7 +234,7 @@
   <script src="/static/scripts/app.js"></script>
   <!-- endbuild-->
 
-<!--
+
 <script type="text/javascript">
 var sc_project=10767484;
 var sc_invisible=1;
@@ -244,7 +251,7 @@ href="http://statcounter.com/free-web-stats/"
 target="_blank"><img class="statcounter"
 src="http://c.statcounter.com/10767484/0/cb84a738/1/"
 alt="web statistics"></a></div></noscript>
--->
+
 
 </body>
 

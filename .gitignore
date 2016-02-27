@@ -1,3 +1,4 @@
 *.pyc
 static/files/SVA1/*
+static/log.csv
 __pycache__/
