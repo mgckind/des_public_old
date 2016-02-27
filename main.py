@@ -48,6 +48,31 @@ class HelpHandler(tornado.web.RequestHandler):
         self.flush()
         self.finish()
 
+class DesdmHelpHandler(BaseHandler):
+    """
+    This class is special as it also include a post request to
+    deal with the form submission
+    """
+    @tornado.web.asynchronous
+    @tornado.web.authenticated
+    def get(self):
+        self.render('index.html', chichi=True)
+    @tornado.web.asynchronous
+    @tornado.web.authenticated
+    def post(self):
+        name = self.get_argument("name", "")
+        last = self.get_argument("lastname", "")
+        email = self.get_argument("email", "")
+        username = self.get_argument("username", "")
+        question = self.get_argument("question", "")
+        topic = self.get_argument("topic", "")
+        topics = topic.replace(',','\n')
+        jira_ticket.create_ticket_desdm(name, last, email, username, topics, question)
+        self.set_status(200)
+        self.flush()
+        self.finish()
+
+
 class PrivateHandler(BaseHandler):
     """
     Handles private pages
@@ -81,6 +106,8 @@ class Application(tornado.web.Application):
             (r"/internal/", PrivateHandler),
             (r"/internal/status", PrivateHandler),
             (r"/internal/status/", PrivateHandler),
+            (r"/internal/help", DesdmHelpHandler),
+            (r"/internal/help/", DesdmHelpHandler),
             (r"/releases/sva1/content/(.*)", tornado.web.StaticFileHandler,\
             {'path':Settings.SVA1_PATH}),
             ]

@@ -1,0 +1,113 @@
+<dom-module id="desdm-help">
+
+<style is="custom-style">
+
+.form1:hover{
+    background: var(--paper-green-50);
+
+}
+
+</style>
+
+
+<template>
+
+
+<des-card  heading="Help me with my DESDM account">
+        
+      <div class="card-content">
+For DES collaborators only. For help regarding public catalogs check <a on-click="_helpsva" href="#">Here</a></br>
+How can we help you with your DESDM account? <br>
+Forgot a username or password? <br>
+Need access to extra services? <br>
+Need to increase your DB quota? <br>
+Other issues?<br>
+Please ask here.<br>
+<b>Note: This is only for users with DES accounts, not intended for creating new users.</b>
+
+
+</div>
+
+<hr> 
+</des-card>
+
+<des-card>
+
+
+      <div class="card-content">
+            <div class="horizontal layout center-justified" >
+            <paper-card heading="Please complete this form" elevation="4" style="padding:20px; width:100%; max-width:600px;  ">
+        <form is="iron-form" id="desdmform" method="post">
+            <div class="form1" id="desdmform1" >
+            <p><b>Contact Information</b></p>
+            <paper-input name="name" label="First Name" required></paper-input>
+            <paper-input name="lastname" label="Last Name" required> </paper-input>
+            <paper-input name="email" label="Email" required >
+            </paper-input>
+            </div>
+            <hr>
+            <div class="form1" id="desdmform2"  >
+            <p><b>DESDM username (optional)</b></p>
+            <paper-input name="username" label="username" >
+            </paper-input>
+            </div>
+            <hr>
+            <div class="form1" id="desdmform3"  >
+            <p><b>Quick Help</b></p>
+            <paper-checkbox name="topic" value="credentials">Forgot DB credentials </paper-checkbox><br>
+            <paper-checkbox name="topic" value="confluence">Forgot confluence password </paper-checkbox> <br>
+            <paper-checkbox name="topic" value="svn"> SVN write access (for code developing) </paper-checkbox> <br>
+            <paper-checkbox name="topic" value="reset">Reset my passwords  </paper-checkbox><br>
+            <paper-checkbox name="topic" value="deslogin"> Request account on DESDM machines (deslogin)  </paper-checkbox><br>
+            <paper-checkbox name="topic" value="quota"> Increase DB quota (please indicate size, database and justification below)  </paper-checkbox><br>
+            <paper-checkbox name="topic" value="other"> Other </paper-checkbox><br>
+            </div>
+            <hr>
+            
+            <p><b>Please add extra information to assist you</b></p>
+            <iron-autogrow-textarea name="question" rows="10"  style="width:100%" class="form1"></iron-autogrow-textarea><br><br>
+
+            <hr>
+                <paper-button raised class="cc"
+              on-click="_submit2">Submit Form</paper-button>
+
+        </form>
+        </paper-card>
+        </div>
+          </div>
+                
+      </des-card>
+<paper-toast  id="toast2" text="Form has been submitted!, Thanks!"> </paper-toast>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "desdm-help",
+    _submit2 : function(event){
+        var valid = document.getElementById('desdmform').validate();
+        if (valid) {
+        document.getElementById('desdmform').submit();
+        document.querySelector('#toast2').show();
+        document.getElementById('desdmform').reset();
+        }
+        else{
+        document.getElementById('desdmform').submit();
+
+        }
+
+    },
+     _helpsva: function(event){
+      app.$.sub_rel.open();
+      app.$.sub_rel_sva1.open();
+      app.$.sva1_menu.select(2);
+          page('/releases/sva1/help');
+      },
+
+
+    });
+
+</script>
+
+</dom>

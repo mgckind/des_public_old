@@ -116,6 +116,12 @@
             <paper-item >DESDM status</paper-item>
           </a>
         </paper-submenu> <!-- 5 -->
+        
+        <paper-submenu> <!--  6 -->
+          <a class="menu-trigger" data-route="desdm_help" href="/internal/help">
+            <paper-item >DESDM Help</paper-item>
+          </a>
+        </paper-submenu> <!-- 6 -->
         {% end %}
 
         </paper-menu>
@@ -206,6 +212,12 @@
             
             <section data-route="internal">
             <des-internal></des-internal>
+            <des-thanks></des-thanks>
+            </section>
+            
+            <section data-route="desdm_help">
+            <desdm-help></desdm-help>
+            <des-thanks></des-thanks>
             </section>
 
             
