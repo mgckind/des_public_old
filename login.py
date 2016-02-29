@@ -14,6 +14,10 @@ def check_user(target_user):
     result = requests.get(target_user,  auth=('desdm-ro', 'matias'))
     return result.status_code
 
+def check_token(token):
+    target_tocken = "https://opensource.ncsa.illinois.edu/crowd/rest/usermanagement/latest/session/%s" % token
+    result = requests.get(target_tocken ,  auth=('desdm-ro', 'matias'))
+
 def check_password(target_pass, xml_request):
     headers={'Content-Type': 'application/xml'}
     result = requests.post(target_pass,  auth=('desdm-ro', 'matias'), data=xml_request, headers=headers)
@@ -79,16 +83,13 @@ class AuthLoginHandler(BaseHandler):
     def set_current_user(self, user, passwd):
         if user:
             self.set_secure_cookie("user", tornado.escape.json_encode(user))
-            self.set_secure_cookie("pass", tornado.escape.json_encode(passwd))
         else:
             self.clear_cookie("user")
-            self.clear_cookie("pass")
 
 
 class AuthLogoutHandler(BaseHandler):
     def get(self):
         self.clear_cookie("user")
-        self.clear_cookie("pass")
         self.redirect(self.get_argument("next", "/"))
 
 
