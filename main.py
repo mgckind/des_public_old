@@ -11,7 +11,7 @@ import jira_ticket
 import login
 from tornado.options import define, options
 
-define("port", default=8888, help="run on the given port", type=int)
+define("port", default=443, help="run on the given port", type=int)
 
 class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
@@ -126,7 +126,7 @@ def main():
     The main function
     """
     tornado.options.parse_command_line()
-    http_server = tornado.httpserver.HTTPServer(Application())
+    http_server = tornado.httpserver.HTTPServer(Application(), ssl_options={"certfile": "/etc/httpd/ssl/des.crt", "keyfile": "/etc/httpd/ssl/des.key",})
     http_server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
 
