@@ -1,0 +1,52 @@
+<dom-module id="des-summary">
+
+<style is="custom-style">
+
+.form1:hover{
+    background: var(--paper-green-50);
+}
+google-map {
+    height: 600px;
+  }
+
+img {
+    max-width:100%;
+    height:auto;
+}
+
+</style>
+
+
+<template>
+
+
+<des-card  heading="Public page stats">
+        
+<div class="card-content">
+
+
+<google-map kml="https://des.ncsa.illinois.edu/static/files/summary/ipp.kml" fit-to-markers >
+</google-map>
+
+</div>
+
+<div class="card-content">
+<img src="/static/files/summary/hist_downloads.png" width="800px"></img><br>
+<img src="/static/files/summary/unique_visits.png" width="800px" ></img><br>
+<img src="/static/files/summary/visits.png" width="800px"></img><br>
+</div>
+
+</des-card>
+
+
+</template>
+
+<script>
+      Polymer({
+      is: "des-summary",
+
+    });
+
+</script>
+
+</dom>

@@ -106,8 +106,8 @@ class Application(tornado.web.Application):
             (r"/internal/", PrivateHandler),
             (r"/internal/status", PrivateHandler),
             (r"/internal/status/", PrivateHandler),
-            (r"/internal/summary", PrivateHandler),
-            (r"/internal/summary/", PrivateHandler),
+            #(r"/internal/summary", PrivateHandler),
+            #(r"/internal/summary/", PrivateHandler),
             (r"/internal/help", DesdmHelpHandler),
             (r"/internal/help/", DesdmHelpHandler),
             (r"/releases/sva1/content/(.*)", tornado.web.StaticFileHandler,\
@@ -128,6 +128,7 @@ def main():
     The main function
     """
     tornado.options.parse_command_line()
+    #http_server = tornado.httpserver.HTTPServer(Application())
     http_server = tornado.httpserver.HTTPServer(Application(), ssl_options={"certfile": "/etc/httpd/ssl/des.crt", "keyfile": "/etc/httpd/ssl/des.key",})
     http_server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
