@@ -106,6 +106,8 @@ class Application(tornado.web.Application):
             (r"/internal/", PrivateHandler),
             (r"/internal/status", PrivateHandler),
             (r"/internal/status/", PrivateHandler),
+            (r"/internal/summary", PrivateHandler),
+            (r"/internal/summary/", PrivateHandler),
             (r"/internal/help", DesdmHelpHandler),
             (r"/internal/help/", DesdmHelpHandler),
             (r"/releases/sva1/content/(.*)", tornado.web.StaticFileHandler,\
